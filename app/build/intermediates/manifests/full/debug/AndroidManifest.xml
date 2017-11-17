@@ -29,6 +29,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.jakers.dissertation_work.calendar"
+            android:label="Calendar"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.jakers.dissertation_work.contact"
+            android:label="Contact"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.jakers.dissertation_work.homework"
+            android:label="Homework"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.jakers.dissertation_work.map"
+            android:label="Map"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.jakers.dissertation_work.subject"
+            android:label="Subject"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

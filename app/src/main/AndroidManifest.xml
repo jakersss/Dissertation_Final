@@ -15,10 +15,40 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".calendar"
+            android:screenOrientation="portrait"
+            android:label="Calendar">
+        </activity>
+
+        <activity
+            android:name=".contact"
+            android:screenOrientation="portrait"
+            android:label="Contact">
+        </activity>
+
+        <activity
+            android:name=".homework"
+            android:screenOrientation="portrait"
+            android:label="Homework">
+        </activity>
+
+        <activity
+            android:name=".map"
+            android:screenOrientation="portrait"
+            android:label="Map">
+        </activity>
+
+        <activity
+            android:name=".subject"
+            android:screenOrientation="portrait"
+            android:label="Subject">
+        </activity>
+
     </application>
 
 </manifest>

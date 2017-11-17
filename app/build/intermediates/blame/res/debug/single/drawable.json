@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_gallery.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
-    },
-    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
@@ -32,16 +28,16 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_share.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_share.xml"
-    },
-    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_map.xml",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_map.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
@@ -54,6 +50,10 @@
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_homework.xml",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_homework.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
@@ -72,6 +72,10 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_contact.xml",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_contact.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
@@ -86,10 +90,6 @@
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\drawable\\design_fab_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_camera.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
@@ -116,8 +116,8 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_send.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_send.xml"
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_subject.xml",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_subject.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
@@ -148,10 +148,6 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_slideshow.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
-    },
-    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
@@ -168,12 +164,12 @@
         "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_calendar.xml",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_calendar.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_manage.xml",
-        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\drawable\\ic_menu_manage.xml"
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
