@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\header_view.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\header_view.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\layout\\design_layout_tab_icon.xml"
     },
@@ -72,6 +76,10 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view3.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view3.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
@@ -108,6 +116,10 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_calendar_view.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\material_calendar_view.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\subject_layout.xml",
         "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\layout\\subject_layout.xml"
     },
@@ -124,12 +136,24 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view1.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view1.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view4.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view4.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
@@ -146,6 +170,10 @@
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view6.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view6.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
@@ -182,6 +210,14 @@
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\calendar_layout.xml",
         "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\layout\\calendar_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view5.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view5.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\week_view2.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\2b226e2318ff2d58b89176cdd6c80bd4e78f4607\\output\\res\\layout\\week_view2.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
