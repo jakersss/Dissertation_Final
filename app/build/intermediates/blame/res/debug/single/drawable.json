@@ -8,12 +8,12 @@
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\drawable\\navigation_empty_icon.xml"
-    },
-    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\Users\\Jakers\\.android\\build-cache\\9676537a952547de7e8e5334c19bb883e3d08437\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\Jakers\\.android\\build-cache\\10952b3c76c19e9a9a07fc579810c62cff53df20\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",

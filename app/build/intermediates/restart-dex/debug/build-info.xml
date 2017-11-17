@@ -6,26 +6,26 @@
     density="tvdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1510911723782"
+    timestamp="1510913056799"
     token="4055826475372943490"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="333" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="139" />
     <task
         name="verifier"
-        duration="0" />
+        duration="10" />
 
     <artifact
-        location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\outputs\apk\app-debug.apk"
-        type="SPLIT_MAIN" />
+        location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
@@ -70,7 +70,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1510911288688"
+        timestamp="1510912853254"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -78,19 +78,19 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1510911394079"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1510911723782"
+        timestamp="1510912980573"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1510913056799"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

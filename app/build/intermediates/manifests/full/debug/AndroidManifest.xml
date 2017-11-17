@@ -29,6 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.jakers.dissertation_work.calendar" />
+        <activity android:name="com.example.jakers.dissertation_work.contact" />
+        <activity android:name="com.example.jakers.dissertation_work.homework" />
+        <activity android:name="com.example.jakers.dissertation_work.map" />
+        <activity android:name="com.example.jakers.dissertation_work.subject" />
     </application>
 
 </manifest>

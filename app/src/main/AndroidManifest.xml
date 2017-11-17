@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".calendar" />
+        <activity android:name=".contact" />
+        <activity android:name=".homework" />
+        <activity android:name=".map" />
+        <activity android:name=".subject" />
     </application>
 
 </manifest>
