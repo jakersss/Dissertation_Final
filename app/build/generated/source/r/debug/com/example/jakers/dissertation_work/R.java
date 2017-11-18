@@ -3328,7 +3328,7 @@ containing a value of this type.
         public static final int beginning=0x7f0d003f;
         public static final int bottom=0x7f0d002e;
         public static final int buttonPanel=0x7f0d0059;
-        public static final int calendar_layout=0x7f0d0084;
+        public static final int calendar_container=0x7f0d0084;
         public static final int calendar_view=0x7f0d0085;
         public static final int cancel_action=0x7f0d00a2;
         public static final int center=0x7f0d002f;

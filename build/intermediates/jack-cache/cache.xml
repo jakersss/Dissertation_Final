@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Jakers\AppData\Local\Android\Sdk\platforms\android-25\optional\org.apache.http.legacy.jar"
+        revision="26.0.1"
+        sha1="5f0541a4298daa0590b22cfbde43f85e2a675545">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\org.apache.http.legacy-ffc5e3b9e1c0a089e3baeeaf81a8768bb419337a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\965c2b8bb94a5ab04ae61abea197a2b801994c38\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-1c51f34e0d3c261f81e2a6169dd9e3fe1674af95.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\AppData\Local\Android\Sdk\platforms\android-25\android.jar"
+        revision="26.0.1"
+        sha1="712a0312fe844a21a1b3812fa960c363a1578984">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\android-9cbf1894054c160e7f39456b4cbf4de55519444e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\d21acbcb6a4a330893f5a60ddad8808e817e208e\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a64d798005117efa076d936d21c276753c3900af.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\61d3ed75a97445c12ac46afea5104fe1b3f13a04\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-5f4fd92f02b48b83677249118e008ace89b0fcf6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-b01f89d91ae40606f529ace9eae3d5f4e5bf13ec.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-41be1aaf709c2e6084029f5aade2f921b2800ead.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\c9a7e70e7f5bf981fb26684ba845197aaf599974\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="6c0dd77982b2e33a5bd34a8dfab9e59093b3e271">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-366bc9acf73c420f0d03504e0d04bb8e80a6f2d4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\90e7f4f0a971577b3b2fad3983abe44b06cc4f2e\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-796236d6a176b6d0054e935d0436932ba6053ef7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\c156f354003af5c8baa21f57af88ac10b0e0dbec\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-68d2d2168124d33ac891f640c1ec4fbf0bf082dc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c216835d9cfed6c7cba712adb59dc72d4f7a41ce.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\a8cf233b11b339780214186ca02d0a640c7c7a11\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0609e88e3d9c9b7341437b06034304892bebb7f4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\6cf31b80500f0f848b88f52f25d0fce755bf3118\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-850276a56a2adb6e3200b81f9054ad237cda5fa2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\constraint-layout-solver-1.0.2-5dd53e50bae2d34d000c21874f9d7039e458d9e3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\83bfc1f490e01d4851e042e3abeeddd1b3b2decd\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-b3582964c74b87197776a17596344895ee9ebf30.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        revision="26.0.1"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-25.3.1-5207b81e20a26a9fd14eca5b70412ae755801c53.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c7d4517d2fc085e8a3f4abc3f7f57721d7d93969.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jakers\.android\build-cache\b30ae531607fcd7cb00b5dc393d806d7705ec40f\output\jars\classes.jar"
+        revision="26.0.1"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c6f42f100b32bd53335791f3328731728640a4ba.jar" />
+    </item>
+
+</items>
