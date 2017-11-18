@@ -32,6 +32,9 @@
         <activity
             android:name=".subject"
             android:label="@string/subject_title"/>
+        <activity
+            android:name=".login"
+            android:theme="@android:style/Theme.NoTitleBar"/>
     </application>
 
 </manifest>

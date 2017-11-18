@@ -11,4 +11,8 @@
     <string name="map_title">Map</string>
     <string name="subject_title">Subject</string>
     <string name="index_title">Index</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Log in</string>
 </resources>

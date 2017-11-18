@@ -41,7 +41,6 @@ public class calendar extends AppCompatActivity{
         CalendarView calendar = (CalendarView) findViewById(R.id.calendar_view);
         calendar.setFirstDayOfWeek(MONDAY);
         setTitle();
-        
     }
 
     public void setTitle(){
