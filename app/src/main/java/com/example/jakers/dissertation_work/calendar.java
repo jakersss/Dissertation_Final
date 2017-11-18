@@ -6,12 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.CalendarView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Date;
 
-import io.blackbox_vision.materialcalendarview.view.CalendarView;
+import static java.util.Calendar.*;
 
 // Things to do:
 // Add calendar functionality
@@ -23,30 +26,26 @@ import io.blackbox_vision.materialcalendarview.view.CalendarView;
  * @version 1.0
  */
 
-public class calendar extends AppCompatActivity {
+public class calendar extends AppCompatActivity{
+
+    protected ArrayList months = new ArrayList<String>(
+            Arrays.asList("January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"));
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
 
-        // Initiated the calendar
-        CalendarView calendarView = (CalendarView) findViewById(R.id.calendar_view);
+        // Instantiates the calendar
+        CalendarView calendar = (CalendarView) findViewById(R.id.calendar_view);
+        calendar.setFirstDayOfWeek(MONDAY);
 
-        calendarView.shouldAnimateOnEnter(true);
-         //       .setFirstDayOfWeek(Calendar.MONDAY)
-         //       .setOnDateClickListener(this::onDateClick)
-         //       .setOnMonthChangeListener(this::onMonthChange)
-         //       .setOnDateLongClickListener(this::onDateLongClick)
-         //       .setOnMonthTitleClickListener(this::onMonthTitleClick);
+        // Sets the title for the page
+        Calendar c = Calendar.getInstance();
 
-        //if (calendarView.isMultiSelectDayEnabled()) {
-        //    calendarView.setOnMultipleDaySelectedListener(this::onMultipleDaySelected);
-        //}
-
-        //calendarView.update(Calendar.getInstance(Locale.getDefault()));
-        //if (calendarView.isMultiSelectDayEnabled()) {
-        //    calendarView.setOnMultipleDaySelectedListener(this::onMultipleDaySelected);
-        //}
-
- //       calendarView.update(Calendar.getInstance(Locale.getDefault()));
+        // gets dates, set as title.
+        int year = c.get(Calendar.YEAR); int month = c.get(Calendar.MONTH);
+        String title = (String) months.get(month) +  " " + year;
+        getSupportActionBar().setTitle(title);
     }
 }

@@ -4,9 +4,6 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        jackOptions{
-            enabled true
-        }
         applicationId "com.example.jakers.dissertation_work"
         minSdkVersion 21
         targetSdkVersion 25
@@ -20,10 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
 
 dependencies {
@@ -35,6 +28,5 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.BlackBoxVision:material-calendar-view:v1.5.7'
     testCompile 'junit:junit:4.12'
 }

@@ -7,6 +7,8 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -16,6 +18,14 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
+    public void compareTitleWithCalendarToTestArrayList(){
+        calendar calTest = new calendar();
+        ArrayList month = calTest.months;
+
+
+    }
+
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.

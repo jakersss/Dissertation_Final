@@ -16,18 +16,17 @@ ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main
 application
 ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:5:5-35:19
 MERGED from [com.android.support:design:25.3.1] C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Jakers\.android\build-cache\a8cf233b11b339780214186ca02d0a640c7c7a11\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jakers\.android\build-cache\965c2b8bb94a5ab04ae61abea197a2b801994c38\output\AndroidManifest.xml:9:5-20
-MERGED from [com.github.BlackBoxVision:material-calendar-view:v1.5.7] C:\Users\Jakers\.android\build-cache\c9a7e70e7f5bf981fb26684ba845197aaf599974\output\AndroidManifest.xml:11:5-47
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Jakers\.android\build-cache\a8cf233b11b339780214186ca02d0a640c7c7a11\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Jakers\.android\build-cache\d21acbcb6a4a330893f5a60ddad8808e817e208e\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Jakers\.android\build-cache\6cf31b80500f0f848b88f52f25d0fce755bf3118\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Jakers\.android\build-cache\90e7f4f0a971577b3b2fad3983abe44b06cc4f2e\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Jakers\.android\build-cache\83bfc1f490e01d4851e042e3abeeddd1b3b2decd\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Jakers\.android\build-cache\b30ae531607fcd7cb00b5dc393d806d7705ec40f\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Jakers\.android\build-cache\61d3ed75a97445c12ac46afea5104fe1b3f13a04\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jakers\.android\build-cache\965c2b8bb94a5ab04ae61abea197a2b801994c38\output\AndroidManifest.xml:9:5-20
 	android:supportsRtl
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:9:9-35
 	android:roundIcon
@@ -87,19 +86,18 @@ ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main
 uses-sdk
 INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.3.1] C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Jakers\.android\build-cache\c156f354003af5c8baa21f57af88ac10b0e0dbec\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.3.1] C:\Users\Jakers\.android\build-cache\a8cf233b11b339780214186ca02d0a640c7c7a11\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jakers\.android\build-cache\965c2b8bb94a5ab04ae61abea197a2b801994c38\output\AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.BlackBoxVision:material-calendar-view:v1.5.7] C:\Users\Jakers\.android\build-cache\c9a7e70e7f5bf981fb26684ba845197aaf599974\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Jakers\.android\build-cache\d21acbcb6a4a330893f5a60ddad8808e817e208e\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Jakers\.android\build-cache\6cf31b80500f0f848b88f52f25d0fce755bf3118\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Jakers\.android\build-cache\90e7f4f0a971577b3b2fad3983abe44b06cc4f2e\output\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Jakers\.android\build-cache\83bfc1f490e01d4851e042e3abeeddd1b3b2decd\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Jakers\.android\build-cache\b30ae531607fcd7cb00b5dc393d806d7705ec40f\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Jakers\.android\build-cache\61d3ed75a97445c12ac46afea5104fe1b3f13a04\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Jakers\.android\build-cache\965c2b8bb94a5ab04ae61abea197a2b801994c38\output\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -110,16 +108,16 @@ MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Jakers\.android
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:25.3.1] C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Jakers\.android\build-cache\c156f354003af5c8baa21f57af88ac10b0e0dbec\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:transition:25.3.1] C:\Users\Jakers\.android\build-cache\a8cf233b11b339780214186ca02d0a640c7c7a11\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Jakers\.android\build-cache\9676537a952547de7e8e5334c19bb883e3d08437\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Jakers\.android\build-cache\d21acbcb6a4a330893f5a60ddad8808e817e208e\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Jakers\.android\build-cache\6cf31b80500f0f848b88f52f25d0fce755bf3118\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Jakers\.android\build-cache\90e7f4f0a971577b3b2fad3983abe44b06cc4f2e\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Jakers\.android\build-cache\83bfc1f490e01d4851e042e3abeeddd1b3b2decd\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Jakers\.android\build-cache\b30ae531607fcd7cb00b5dc393d806d7705ec40f\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\bfdfcfa630296070012a8aa00023c752709b378a\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Jakers\.android\build-cache\186c326037d48d944e64138275def51fb9136e8a\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Jakers\.android\build-cache\61d3ed75a97445c12ac46afea5104fe1b3f13a04\output\AndroidManifest.xml:25:5-27:34
 	android:value
 		ADDED from [com.android.support:design:25.3.1] C:\Users\Jakers\.android\build-cache\10952b3c76c19e9a9a07fc579810c62cff53df20\output\AndroidManifest.xml:27:9-31
