@@ -32,17 +32,19 @@ public class calendar extends AppCompatActivity{
             Arrays.asList("January", "February", "March", "April", "May", "June",
                     "July", "August", "September", "October", "November", "December"));
 
+    // Sets the title for the page
+    Calendar c = Calendar.getInstance();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
-
-        // Instantiates the calendar
         CalendarView calendar = (CalendarView) findViewById(R.id.calendar_view);
         calendar.setFirstDayOfWeek(MONDAY);
+        setTitle();
+        
+    }
 
-        // Sets the title for the page
-        Calendar c = Calendar.getInstance();
-
+    public void setTitle(){
         // gets dates, set as title.
         int year = c.get(Calendar.YEAR); int month = c.get(Calendar.MONTH);
         String title = (String) months.get(month) +  " " + year;
