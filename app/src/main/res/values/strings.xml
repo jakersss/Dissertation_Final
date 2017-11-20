@@ -15,4 +15,14 @@
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="btn_login">Log in</string>
+
+    <!-- Resources for login verification -->
+    <string name="error_message_username">Enter valid username</string>
+    <string name="error_mesage_password">Enter a valid password</string>
+    <string name="text_hello">Hello,</string>
+    <string name="text_title">Wildern School</string>
+    <string name="text_accounts">All Accounts</string>
+    <string name="hint_name">Username</string>
+    <string name="login_failed">Login failed. Contact system administrator, or retype username and password</string>
+    <string name="Name_Field_Nav">Your Name Goes Here</string>
 </resources>

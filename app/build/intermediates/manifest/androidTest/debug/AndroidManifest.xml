@@ -13,7 +13,7 @@
         android:label="Tests for com.example.jakers.dissertation_work"
         android:targetPackage="com.example.jakers.dissertation_work" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

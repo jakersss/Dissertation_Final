@@ -28,6 +28,7 @@ import static java.util.Calendar.*;
 
 public class calendar extends AppCompatActivity{
 
+    // Sets arrayList of months, to be compared against to gather the title
     protected ArrayList months = new ArrayList<String>(
             Arrays.asList("January", "February", "March", "April", "May", "June",
                     "July", "August", "September", "October", "November", "December"));
@@ -44,7 +45,8 @@ public class calendar extends AppCompatActivity{
     }
 
     public void setTitle(){
-        // gets dates, set as title.
+        // gets date, sets as title
+        // to do: update so that when you switch between months, the title updates.
         int year = c.get(Calendar.YEAR); int month = c.get(Calendar.MONTH);
         String title = (String) months.get(month) +  " " + year;
         getSupportActionBar().setTitle(title);

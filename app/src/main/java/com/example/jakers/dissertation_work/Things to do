@@ -1,0 +1,15 @@
+Things to do (a very top level view)
+- Query for validation on login.java. (DONE)
+- Revisit your initial plan
+- Validation on the DB login (Not done)
+- Get the login page working (DONE)
+- Create databases for other pages.
+- Create the other pages of the program, create getters and setters
+- Test all the functions
+- Build all other functionality.
+
+Notes:
+- Validation of data entry isn't yet working.
+
+For version 2:
+- DOM to parse XML (currently just 'your name'); (- Add username and e-mail string to the menu bar)
