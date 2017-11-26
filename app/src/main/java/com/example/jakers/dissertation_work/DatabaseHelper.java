@@ -23,8 +23,16 @@ import java.util.List;
 // Add 'on first load, import data' functionality. (DONE)
 // Implement validation when you click on the login button (DONE)
 // Validate on use fields (DONE)
-// Git commit
+// Git commit (DONE)
 // Plan the rest of the database
+    // First thing - subject cards.
+        // Create database for subjects, test
+        // Add rooms table and references, test
+        // Create cards, test
+        // Add images programatically using glide, test
+    // Then, individual subject pages
+    // Then homework table, integrating 'homework tasks' into subject page.
+// When everything's in place and tested, work on different views.
 
 // V2:
 // Implement cipher, and work on seperate data entry file.
@@ -35,7 +43,6 @@ import java.util.List;
  * Version 1.0 - first iteration - getting login functionality to work with SQLCrypt
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-
     /**
      * Creates user table within database planner.db.
      */
@@ -45,15 +52,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Set database name
     private static final String DATABASE_NAME = "planner.db";
 
-    // Create user table columns
+    // Create column statements for user table
     public static final String COLUMN_USER_USERNAME = "user_username";
     public static final String COLUMN_USER_NAME = "user_name";
     public static final String COLUMN_USER_PASSWORD = "user_password";
 
-    // Set table name
-    public static final String TABLE_NAME = "user";
+    // Create column statements for subject table
+    public static final String COLUMN_SUBJECT_USERNAME = "user_subject_username";
+    public static final String COLUMN_SUBJECT_DESCRIPTION = "subject_description";
+    public static final String COLUMN_SUBJECT_TEACHER = "subject_teacher";
+    public static final String COLUMN_SUBJECT_TEACHERIMAGE = "subject_image";
 
-    // Create table statements
+    // Set table names
+    public static final String TABLE_NAME = "user";
+    public static final String TABLE_SUBJECT = "subject";
+
+    // Create table statement - user
     public static final String CREATE_USER_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
                     COLUMN_USER_USERNAME + " TEXT PRIMARY KEY, " +
@@ -62,6 +76,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "UNIQUE (" + COLUMN_USER_USERNAME + ", " +
                     COLUMN_USER_PASSWORD + "));";
 
+    // Create table statement
+    // Room is controlled through the room table. Rooms will change depending on the week.
+    // Changes made by anyone else but admin is not permitted.
+    // Images are added programatically, based on the subject ID.
+    public static final String CREATE_SUBJECT_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_SUBJECT + "(" +
+                    COLUMN_SUBJECT_USERNAME + " TEXT, " +
+                    COLUMN_SUBJECT_DESCRIPTION + " TEXT, " +
+                    COLUMN_SUBJECT_TEACHER + " TEXT, " +
+                    " FOREIGN KEY" + "(" + COLUMN_SUBJECT_USERNAME + ")"
+                    + " REFERENCES " + TABLE_NAME + "(" + COLUMN_USER_USERNAME + "));";
+
+    // Implements data to login - how this is managed needs to be changed.
     public static final String SETUP_USER_ACCOUNTS1 =
             "INSERT OR IGNORE INTO " + TABLE_NAME + " VALUES " + "(" +
                     "'a.turing'," +  " 'Alan Turing', " +  "'Enigma');";
@@ -74,9 +101,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "INSERT OR IGNORE INTO " + TABLE_NAME + " VALUES " + "(" +
                     "'p.andre'," +  " 'Peter Andre', " +  " 'Singing');";
 
+    // Implements data to subject
+    public static final String SUBJECT_ENGLISH =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'English', " +
+                    "'Mr Ipsum');";
 
-    // Drop table statement
+    public static final String SUBJECT_FRENCH =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'French', " +
+                    "'Mrs Pote');";
+
+    public static final String SUBJECT_GEOG =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Geography', " +
+                    "'Mr Craig');";
+
+    public static final String SUBJECT_MATHS =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Maths', " +
+                    "'Mr Daniels');";
+
+    public static final String SUBJECT_PE =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'PE', " +
+                    "'Mr Chris');";
+
+    public static final String SUBJECT_SCIENCE =
+            "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Science', " +
+                    "'Mr Davies');";
+
+    // Drop table statements
     public static final String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+    public static final String DROP_SUBJECT_TABLE = "DROP TABLE IF EXISTS " + TABLE_SUBJECT;
 
     //Constructor
     public DatabaseHelper(Context context) {
@@ -85,10 +137,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Sets up the users
         db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_SUBJECT_TABLE);
+        // Sets up the user accounts
         db.execSQL(SETUP_USER_ACCOUNTS1);
         db.execSQL(SETUP_USER_ACCOUNTS2);
         db.execSQL(SETUP_USER_ACCOUNTS3);
+        // Sets up the subject tables
+        db.execSQL(SUBJECT_ENGLISH);
+        db.execSQL(SUBJECT_FRENCH);
+        db.execSQL(SUBJECT_GEOG);
+        db.execSQL(SUBJECT_MATHS);
+        db.execSQL(SUBJECT_PE);
+        db.execSQL(SUBJECT_SCIENCE);
     }
 
     @Override
@@ -99,8 +161,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /* Methods for the subjects table */
+    public ArrayList<subjectObj> getAllSubjects(){
+        String[] columns = {
+                COLUMN_SUBJECT_DESCRIPTION,
+                COLUMN_SUBJECT_TEACHER};
+
+        ArrayList<subjectObj> subjectInfo = new ArrayList<subjectObj>();
+
+        SQLiteDatabase dbSubject = this.getReadableDatabase();
+
+        String sortOrder = COLUMN_SUBJECT_DESCRIPTION + " ASC";
+
+        Cursor subjCursor = dbSubject.query(TABLE_SUBJECT,
+                columns,
+                null,
+                null,
+                null,
+                null,
+                sortOrder);
+
+        if (subjCursor.getCount() > 0) {
+            // ... while there is another value in the DB ...
+            while (subjCursor.moveToNext()) {
+                subjectObj subjectobj = new subjectObj();
+                subjectobj.setDescription(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_SUBJECT_DESCRIPTION)));
+                subjectobj.setTeacher(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_SUBJECT_TEACHER)));
+                subjectInfo.add(subjectobj);
+            }
+        }
+        subjCursor.close();
+        return subjectInfo;}
+
+
     /**
-     * Methods for CRUD operations (admin only, except from checking the database)
+     * Methods for the user table
      */
     // Takes string variables and adds them to the DB.
     public void addUser(String username, String name, String password) {
@@ -148,7 +243,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String name = (cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)));
                 // Adds the info to the DB
                 userHashAndName.put(username, name);
-                System.out.println(userHashAndName);
             }
 
         }

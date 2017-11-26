@@ -81,6 +81,7 @@ public class login extends AppCompatActivity {
                     Snackbar.make(view, R.string.login_failed, Snackbar.LENGTH_LONG).show();}}
 });}
 
+// Feeble attempt at getting around DOM. DOM to be implemented in V2.
 public String getUsername(){
     return user;
 }

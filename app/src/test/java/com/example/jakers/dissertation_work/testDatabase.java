@@ -14,6 +14,9 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import static com.example.jakers.dissertation_work.DatabaseHelper.TABLE_NAME;
@@ -46,7 +49,7 @@ public class testDatabase {
         db.close();
     }
 
-    @Test
+/*    @Test
     // Test ID = 2
     // Tests creation and direct entry of data to the database.
     // Test 1: database only writing password field as username, other fields are null
@@ -60,7 +63,7 @@ public class testDatabase {
         //System.out.println("expected size of array after initial addition: 3, actual result: " + users.size());
     }
 
-    /*Test ID = 3 -- needs to be fixed
+    *//*Test ID = 3 -- needs to be fixed
     NOTE: THIS TEST SHOULD FAIL. IT'S DESIGNED TO FAIL IN ADDING ROWS.
      Tests creation of entry of a repeated field into the database, which should fail
      Test 1: Duplication occurs. Not working.
@@ -68,7 +71,7 @@ public class testDatabase {
      Test 3: Validation of username and password occurs before data entry, instead of comparing all values of the
      database. Not working. Duplicate records added.
      Test 4: Altered insert statement to include unique fields. Now not adding!
-    */@Test
+    *//*@Test
     public void addRepeatUserToNotAdd() {
         helper.addUser("a.turing", "Alan Turing", "Enigma");
         HashMap<String, String> users = helper.getAllUserNamesAndPasswords();
@@ -80,10 +83,10 @@ public class testDatabase {
         //System.out.println("expected size of array after addition of same records twice: 3, actual result: " + users.size());
     }
 
-    /** Test ID = 4
+    *//** Test ID = 4
      // Demonstrates updating a user's password
      // Test 1: Worked first time
-     */
+     *//*
     @Test
     public void updateUserPasswordCheck(){
         HashMap<String, String> users = helper.getAllUserNamesAndPasswords();
@@ -95,10 +98,10 @@ public class testDatabase {
         System.out.println(users2);
     }
 
-    /** Test ID = 5
+    *//** Test ID = 5
      // Demonstrates deleting a user
      // Test 1: Worked first time
-     */
+     *//*
     @Test
     public void deleteUserTestAndDisplayResult(){
         HashMap<String, String> users = helper.getAllUserNamesAndPasswords();
@@ -107,7 +110,7 @@ public class testDatabase {
         System.out.println(users2);
     }
 
-    /**
+    *//**
      *Test ID = 6
      * Tests to see if validation works.
      * Test 1: Not working, index out of range
@@ -116,7 +119,7 @@ public class testDatabase {
      * Thoughts - are tests persistent?
      * Fix: Updated fields aren't persistent amongst tests.
      * When populated in DatabaseHelper, no longer working.
-    */
+    *//*
      @Test
     public void loginFailAndSuccess(){
         HashMap<String, String> users = helper.getAllUserNamesAndPasswords();
@@ -127,4 +130,16 @@ public class testDatabase {
         assertTrue(shouldntFailAsIsInDatabase);
         System.out.println("Record not in database should return false. Returned: " + shouldFailAsIsntInDatabase);
         System.out.println("Record in database should return true. Returned: " + shouldntFailAsIsInDatabase);
+    }*/
+
+    // Test 1: didn't work because of syntax errors in SQL create statements
+    // Test 2: didn't work because of the get all subjects method
+        // Didn't work as parameters weren't updated
+    // Test 3: didn't print strings, printed references (which is fine).
+    @Test
+    public void testAllSubjects(){
+        ArrayList<subjectObj> hmso = helper.getAllSubjects();
+        for(subjectObj s : hmso) {
+        System.out.println(s);
     }}
+}

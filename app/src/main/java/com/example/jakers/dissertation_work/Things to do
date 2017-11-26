@@ -4,6 +4,7 @@ Things to do (a very top level view)
 - Validation on the DB login (Not done)
 - Get the login page working (DONE)
 - Create databases for other pages.
+- Get cards working for subject page (read comments)
 - Create the other pages of the program, create getters and setters
 - Test all the functions
 - Build all other functionality.
