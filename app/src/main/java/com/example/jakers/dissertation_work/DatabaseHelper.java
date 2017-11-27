@@ -25,13 +25,17 @@ import java.util.List;
 // Validate on use fields (DONE)
 // Git commit (DONE)
 // Plan the rest of the database
-    // First thing - subject cards.
-        // Create database for subjects, test
-        // Add rooms table and references, test
-        // Create cards, test
-        // Add images programatically using glide, test
+    // Add all tables in ERD
+        // Events table for events
+        // Homework table
+        // Note table
+    // Add room FK to subjects
+        // First thing - subject cards.
+            // Create database for subjects, test (DONE)
+            // Add rooms table and references, test
+            // Create cards, test
+            // Add images programatically using glide, test
     // Then, individual subject pages
-    // Then homework table, integrating 'homework tasks' into subject page.
 // When everything's in place and tested, work on different views.
 
 // V2:
