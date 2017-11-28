@@ -6,9 +6,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.Image;
 import android.provider.Contacts;
 import android.text.TextUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,12 +26,12 @@ import java.util.List;
 // Implement validation when you click on the login button (DONE)
 // Validate on use fields (DONE)
 // Git commit (DONE)
-// Plan the rest of the database
-    // Add all tables in ERD
-        // Events table for events
-        // Homework table
-        // Note table
-    // Add room FK to subjects
+// Plan the rest of the database (Done)
+    // Add all tables in ERD (Done)
+        // Events table for events (Done)
+        // Homework table (Done)
+        // Note table (Done)
+    // Add room FK to subjects (Done)
         // First thing - subject cards.
             // Create database for subjects, test (DONE)
             // Add rooms table and references, test
@@ -45,6 +47,7 @@ import java.util.List;
 /**
  * Created by Jakers on 18/11/2017.
  * Version 1.0 - first iteration - getting login functionality to work with SQLCrypt
+ * Images are implemented with Blob, put into place with Glide.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     /**
@@ -63,13 +66,129 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Create column statements for subject table
     public static final String COLUMN_SUBJECT_USERNAME = "user_subject_username";
-    public static final String COLUMN_SUBJECT_DESCRIPTION = "subject_description";
+    public static final String COLUMN_SUBJECT_SUBJECT = "subject_description";
     public static final String COLUMN_SUBJECT_TEACHER = "subject_teacher";
-    public static final String COLUMN_SUBJECT_TEACHERIMAGE = "subject_image";
+    public static final String COLUMN_SUBJECT_ROOM = "subject_room";
+
+    // Create column statements for lesson information
+    public static final String COLUMN_LESSON_USERNAME = "lesson_username";
+    public static final String COLUMN_LESSON_DESCRIPTION = "lesson_subject_description";
+    public static final String COLUMN_LESSON_ROOM = "lesson_room_description";
+    public static final String COLUMN_LESSON_RESOURCE = "lesson_subject_resource";
+    public static final String COLUMN_LESSON_RESOURCEURL = "lesson_subject_resource_url";
+
+    // Create column statements for lesson timetable
+    public static final String COLUMN_LESSONTIMETABLE_USERNAME = "lesson_username";
+    public static final String COLUMN_LESSONTIMETABLE_SUBJECTDESC = "subject_description";
+    public static final String COLUMN_LESSONTIMETABLE_ROOMID = "room_id";
+    public static final String COLUMN_LESSONTIMETABLE_WEEKOCCURANCE = "week occurance";
+    public static final String COLUMN_LESSONTIMETABLE_DAY = "lesson_day";
+    public static final String COLUMN_LESSONTIMETABLE_TIME = "lesson_time";
+
+    // Create column statements for notes
+    public static final String COLUMN_NOTE_USERNAME = "note_username";
+    public static final String COLUMN_NOTE_SUBJECT_DESC = "note_subject";
+    public static final String COLUMN_NOTE_DESCRIPTION = "note_description";
+    public static final String COLUMN_NOTE_TIMESTAMP = "note_timestamp";
+
+    // Create columns for Homework
+    public static final String COLUMN_HOMEWORK_USERNAME = "homework_username";
+    public static final String COLUMN_HOMEWORK_SUBJECT = "homework_subject";
+    public static final String COLUMN_HOMEWORK_DESC = "homework_description";
+    public static final String COLUMN_HOMEWORK_TASK  = "homework_task";
+    public static final String COLUMN_HOMEWORK_DUEDATE = "homework_due_date";
+
+    // Create columns for homework_resources
+    public static final String COLUMN_HOMEWORK_RESOURCE_DESCRIPTION = "Homework_Description";
+    public static final String COLUMN_RESOURCE = "Homework_Resource_Desc";
+    public static final String COLUMN_RESOURCEURL = "Homework_Resource_URL";
+    public static final String COLUMN_RESOURCEINTENT = "Homework_ResourceIntent";
 
     // Set table names
     public static final String TABLE_NAME = "user";
     public static final String TABLE_SUBJECT = "subject";
+    public static final String TABLE_RESOURCE = "resources";
+    public static final String TABLE_LESSON_TIMETABLE = "lesson_timetable";
+    public static final String TABLE_NOTES = "notes";
+    public static final String TABLE_CALENDAR_EVENT = "calendar_event";
+    public static final String TABLE_HOMEWORK = "Homework";
+    public static final String TABLE_HOMEWORK_RESOURCE = "Homework_resource";
+
+    // Create column for Calendar_Events
+    public static final String COLUMN_CALENDAR_EVENT_USERNAME = "event_username";
+    public static final String COLUMN_CALENDAR_EVENT_ID = "calendar_event_id";
+    public static final String COLUMN_CALENDAR_EVENT_DESCRIPTION = "calendar_event_description";
+    public static final String COLUMN_CALENDAR_EVENT_STARTDATE = "calendar_startDate";
+    public static final String COLUMN_CALENDAR_EVENT_ENDDATE = "calendar_endDate";
+    public static final String COLUMN_CALENDAR_EVENT_STARTTIME = "calendar_startTime";
+    public static final String COLUMN_CALENDAR_EVENT_ENDTIME = "calendar_endTime";
+
+    // Create table statements for notes
+    // Delete notes
+    // Add notes
+    public static final String CREATE_NOTE_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_NOTES + "(" +
+                    COLUMN_NOTE_USERNAME + " TEXT, " +
+                    COLUMN_NOTE_SUBJECT_DESC + " TEXT, " +
+                    COLUMN_NOTE_DESCRIPTION + " TEXT NOT NULL UNIQUE, " +
+                    COLUMN_NOTE_TIMESTAMP + " DATETIME, " +
+                    "FOREIGN KEY (" + COLUMN_NOTE_USERNAME + ") REFERENCES " +
+                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + ")," +
+                    "FOREIGN KEY (" + COLUMN_NOTE_SUBJECT_DESC + ") REFERENCES " +
+                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
+
+    // Create table for calendar events
+    public static final String CREATE_CALENDAR_EVENT =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_CALENDAR_EVENT +  "(" +
+                    COLUMN_CALENDAR_EVENT_USERNAME + " TEXT, " +
+                    COLUMN_CALENDAR_EVENT_ID + " INT NOT NULL PRIMARY KEY, " +
+                    COLUMN_CALENDAR_EVENT_DESCRIPTION + " TEXT UNIQUE," +
+                    COLUMN_CALENDAR_EVENT_STARTDATE + " DATE, " +
+                    COLUMN_CALENDAR_EVENT_ENDDATE + " DATE, " +
+                    COLUMN_CALENDAR_EVENT_STARTTIME + " TIME, " +
+                    COLUMN_CALENDAR_EVENT_ENDTIME + " TIME, " +
+                    "FOREIGN KEY (" + COLUMN_CALENDAR_EVENT_USERNAME + ") REFERENCES " +
+                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + "));";
+
+    // Create table statement for homework
+    // Delete homework
+    // Add homework
+    public static final String CREATE_HOMEWORK_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_HOMEWORK + "(" +
+                    COLUMN_HOMEWORK_USERNAME + " TEXT, " +
+                    COLUMN_HOMEWORK_DESC + " TEXT NOT NULL PRIMARY KEY UNIQUE, " +
+                    COLUMN_HOMEWORK_SUBJECT + " TEXT, " +
+                    COLUMN_HOMEWORK_TASK + " TEXT, " +
+                    COLUMN_HOMEWORK_DUEDATE + " DATE, " +
+                    "FOREIGN KEY (" + COLUMN_HOMEWORK_USERNAME + ") REFERENCES " +
+                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + "), " +
+                    "FOREIGN KEY (" + COLUMN_HOMEWORK_SUBJECT + ") REFERENCES " +
+                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
+
+    // Create table statement for homework_resource
+    // Validation - else "that doesn't exist"
+    public static final String CREATE_HOMEWORK_RESOURCE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_HOMEWORK_RESOURCE + "(" +
+                    COLUMN_HOMEWORK_RESOURCE_DESCRIPTION + " TEXT, " +
+                    COLUMN_RESOURCE + " TEXT, " +
+                    COLUMN_RESOURCEURL + " TEXT, " +
+                    COLUMN_RESOURCEINTENT + " TEXT, " +
+                    "FOREIGN KEY (" + COLUMN_HOMEWORK_RESOURCE_DESCRIPTION + ") REFERENCES " +
+                    TABLE_HOMEWORK + "(" + COLUMN_HOMEWORK_DESC + "));";
+
+    // Create table statement - lesson timetable
+    public static final String CREATE_LESSON_TIMETABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_LESSON_TIMETABLE + "(" +
+                    COLUMN_LESSONTIMETABLE_USERNAME + " TEXT, " +
+                    COLUMN_LESSONTIMETABLE_SUBJECTDESC + " TEXT, " +
+                    COLUMN_LESSONTIMETABLE_ROOMID + " INT, " +
+                    COLUMN_LESSONTIMETABLE_WEEKOCCURANCE + " INT, " +
+                    COLUMN_LESSONTIMETABLE_DAY + " INT, " +
+                    COLUMN_LESSONTIMETABLE_TIME + " TIME, " +
+                    "FOREIGN KEY (" + COLUMN_LESSONTIMETABLE_USERNAME + ") REFERENCES " +
+                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + ")," +
+                    "FOREIGN KEY (" + COLUMN_LESSONTIMETABLE_SUBJECTDESC + ") REFERENCES " +
+                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
 
     // Create table statement - user
     public static final String CREATE_USER_TABLE =
@@ -80,15 +199,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "UNIQUE (" + COLUMN_USER_USERNAME + ", " +
                     COLUMN_USER_PASSWORD + "));";
 
-    // Create table statement
-    // Room is controlled through the room table. Rooms will change depending on the week.
-    // Changes made by anyone else but admin is not permitted.
-    // Images are added programatically, based on the subject ID.
+    // Create table statement - lesson resources
+    public static final String CREATE_RESOURCE_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_RESOURCE + "(" +
+                    COLUMN_LESSON_USERNAME + " TEXT, " +
+                    COLUMN_LESSON_DESCRIPTION + " TEXT, " +
+                    COLUMN_LESSON_ROOM + " INT, " +
+                    COLUMN_LESSON_RESOURCE + " TEXT, " +
+                    COLUMN_LESSON_RESOURCEURL + " TEXT " +
+                    COLUMN_LESSON_RESOURCE + " TEXT, " +
+                    "FOREIGN KEY (" + COLUMN_LESSON_USERNAME + ") REFERENCES " +
+                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + "), " +
+                    "FOREIGN KEY (" + COLUMN_LESSON_DESCRIPTION + ") REFERENCES " +
+                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
+
+    // Create table statement - subject
     public static final String CREATE_SUBJECT_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_SUBJECT + "(" +
                     COLUMN_SUBJECT_USERNAME + " TEXT, " +
-                    COLUMN_SUBJECT_DESCRIPTION + " TEXT, " +
+                    COLUMN_SUBJECT_SUBJECT + " TEXT, " +
                     COLUMN_SUBJECT_TEACHER + " TEXT, " +
+                    COLUMN_SUBJECT_ROOM + " INT, " +
                     " FOREIGN KEY" + "(" + COLUMN_SUBJECT_USERNAME + ")"
                     + " REFERENCES " + TABLE_NAME + "(" + COLUMN_USER_USERNAME + "));";
 
@@ -108,31 +239,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Implements data to subject
     public static final String SUBJECT_ENGLISH =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'English', " +
-                    "'Mr Ipsum');";
+                    "'Mr Ipsum', '902');";
 
     public static final String SUBJECT_FRENCH =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'French', " +
-                    "'Mrs Pote');";
+                    "'Mrs Pote', '902');";
 
     public static final String SUBJECT_GEOG =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Geography', " +
-                    "'Mr Craig');";
+                    "'Mr Craig', '902');";
 
     public static final String SUBJECT_MATHS =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Maths', " +
-                    "'Mr Daniels');";
+                    "'Mr Daniels', '902');";
 
     public static final String SUBJECT_PE =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'PE', " +
-                    "'Mr Chris');";
+                    "'Mr Chris', '902');";
 
     public static final String SUBJECT_SCIENCE =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Science', " +
-                    "'Mr Davies');";
+                    "'Mr Davies', '902');";
 
     // Drop table statements
     public static final String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String DROP_SUBJECT_TABLE = "DROP TABLE IF EXISTS " + TABLE_SUBJECT;
+    public static final String DROP_RESOURCE_TABLE = "DROP TABLE IF EXISTS " + TABLE_RESOURCE;
+    public static final String DROP_LESSON_TIMETABLE_TABLE = "DROP TABLE IF EXISTS " + TABLE_LESSON_TIMETABLE;
+    public static final String DROP_TABLE_NOTES = "DROP TABLE IF EXISTS " + TABLE_NOTES;
+    public static final String DROP_CALENDAR_EVENT_TABLE = "DROP TABLE IF EXISTS " + TABLE_CALENDAR_EVENT;
+    public static final String DROP_HOMEWORK_TABLE= "DROP TABLE IF EXISTS " + TABLE_HOMEWORK;
+    public static final String DROP_HOMEWORK_RESOURCE_TABLE = "DROP TABLE IF EXISTS " + TABLE_HOMEWORK_RESOURCE;
 
     //Constructor
     public DatabaseHelper(Context context) {
@@ -144,6 +281,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Sets up the users
         db.execSQL(CREATE_USER_TABLE);
         db.execSQL(CREATE_SUBJECT_TABLE);
+        // Creates other tables
+        db.execSQL(CREATE_CALENDAR_EVENT);
+        db.execSQL(CREATE_NOTE_TABLE);
+        db.execSQL(CREATE_LESSON_TIMETABLE);
+        db.execSQL(CREATE_HOMEWORK_TABLE);
+        db.execSQL(CREATE_HOMEWORK_RESOURCE);
+        db.execSQL(CREATE_RESOURCE_TABLE);
         // Sets up the user accounts
         db.execSQL(SETUP_USER_ACCOUNTS1);
         db.execSQL(SETUP_USER_ACCOUNTS2);
@@ -161,21 +305,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop table if exists
         db.execSQL(DROP_USER_TABLE);
+        db.execSQL(DROP_CALENDAR_EVENT_TABLE);
+        db.execSQL(DROP_HOMEWORK_RESOURCE_TABLE);
+        db.execSQL(DROP_HOMEWORK_TABLE);
+        db.execSQL(DROP_LESSON_TIMETABLE_TABLE);
+        db.execSQL(DROP_RESOURCE_TABLE);
+        db.execSQL(DROP_SUBJECT_TABLE);
+        db.execSQL(DROP_TABLE_NOTES);
         // Create tables again
         onCreate(db);
     }
 
+    /* Methods for the homework table */
+
+    /* Methods for the calendar_event table */
+
+    /* Methods for
+
     /* Methods for the subjects table */
     public ArrayList<subjectObj> getAllSubjects(){
         String[] columns = {
-                COLUMN_SUBJECT_DESCRIPTION,
+                COLUMN_SUBJECT_SUBJECT,
                 COLUMN_SUBJECT_TEACHER};
 
         ArrayList<subjectObj> subjectInfo = new ArrayList<subjectObj>();
 
         SQLiteDatabase dbSubject = this.getReadableDatabase();
 
-        String sortOrder = COLUMN_SUBJECT_DESCRIPTION + " ASC";
+        String sortOrder = COLUMN_SUBJECT_SUBJECT + " ASC";
 
         Cursor subjCursor = dbSubject.query(TABLE_SUBJECT,
                 columns,
@@ -189,7 +346,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             // ... while there is another value in the DB ...
             while (subjCursor.moveToNext()) {
                 subjectObj subjectobj = new subjectObj();
-                subjectobj.setDescription(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_SUBJECT_DESCRIPTION)));
+                subjectobj.setDescription(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_SUBJECT_SUBJECT)));
                 subjectobj.setTeacher(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_SUBJECT_TEACHER)));
                 subjectInfo.add(subjectobj);
             }

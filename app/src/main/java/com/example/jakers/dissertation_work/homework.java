@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
  * Created by Jakers on 17/11/2017.
  */
 
+// No validation of URL adding - controlled by some browser.
+
 public class homework extends AppCompatActivity {
     public class calendar extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
