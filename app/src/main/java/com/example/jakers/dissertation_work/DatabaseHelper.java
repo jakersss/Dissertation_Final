@@ -1,20 +1,14 @@
 package com.example.jakers.dissertation_work;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.media.Image;
-import android.provider.Contacts;
-import android.text.TextUtils;
 
-import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Array;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 // Persistent databases - test.
 // Test the database is created correctly (DONE)
@@ -73,7 +67,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Create column statements for lesson information
     public static final String COLUMN_LESSON_USERNAME = "lesson_username";
     public static final String COLUMN_LESSON_DESCRIPTION = "lesson_subject_description";
-    public static final String COLUMN_LESSON_ROOM = "lesson_room_description";
     public static final String COLUMN_LESSON_RESOURCE = "lesson_subject_resource";
     public static final String COLUMN_LESSON_RESOURCEURL = "lesson_subject_resource_url";
 
@@ -86,7 +79,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_LESSONTIMETABLE_TIME = "lesson_time";
 
     // Create column statements for notes
-    public static final String COLUMN_NOTE_USERNAME = "note_username";
     public static final String COLUMN_NOTE_SUBJECT_DESC = "note_subject";
     public static final String COLUMN_NOTE_DESCRIPTION = "note_description";
     public static final String COLUMN_NOTE_TIMESTAMP = "note_timestamp";
@@ -128,12 +120,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Add notes
     public static final String CREATE_NOTE_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NOTES + "(" +
-                    COLUMN_NOTE_USERNAME + " TEXT, " +
+                    COLUMN_NOTE_DESCRIPTION+ " TEXT NOT NULL UNIQUE, " +
                     COLUMN_NOTE_SUBJECT_DESC + " TEXT, " +
-                    COLUMN_NOTE_DESCRIPTION + " TEXT NOT NULL UNIQUE, " +
-                    COLUMN_NOTE_TIMESTAMP + " DATETIME, " +
-                    "FOREIGN KEY (" + COLUMN_NOTE_USERNAME + ") REFERENCES " +
-                    TABLE_NAME + "(" + COLUMN_USER_USERNAME + ")," +
+                    COLUMN_NOTE_TIMESTAMP + " DEFAULT CURRENT_TIMESTAMP, " +
                     "FOREIGN KEY (" + COLUMN_NOTE_SUBJECT_DESC + ") REFERENCES " +
                     TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
 
@@ -200,11 +189,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_USER_PASSWORD + "));";
 
     // Create table statement - lesson resources
-    public static final String CREATE_RESOURCE_TABLE =
+    public static final String CREATE_LESSON_RESOURCE_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_RESOURCE + "(" +
                     COLUMN_LESSON_USERNAME + " TEXT, " +
                     COLUMN_LESSON_DESCRIPTION + " TEXT, " +
-                    COLUMN_LESSON_ROOM + " INT, " +
                     COLUMN_LESSON_RESOURCE + " TEXT, " +
                     COLUMN_LESSON_RESOURCEURL + " TEXT " +
                     COLUMN_LESSON_RESOURCE + " TEXT, " +
@@ -273,8 +261,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Constructor
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);}
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -287,7 +274,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_LESSON_TIMETABLE);
         db.execSQL(CREATE_HOMEWORK_TABLE);
         db.execSQL(CREATE_HOMEWORK_RESOURCE);
-        db.execSQL(CREATE_RESOURCE_TABLE);
+        db.execSQL(CREATE_LESSON_RESOURCE_TABLE);
         // Sets up the user accounts
         db.execSQL(SETUP_USER_ACCOUNTS1);
         db.execSQL(SETUP_USER_ACCOUNTS2);
@@ -309,18 +296,167 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_HOMEWORK_RESOURCE_TABLE);
         db.execSQL(DROP_HOMEWORK_TABLE);
         db.execSQL(DROP_LESSON_TIMETABLE_TABLE);
-        db.execSQL(DROP_RESOURCE_TABLE);
+        db.execSQL(CREATE_LESSON_RESOURCE_TABLE);
         db.execSQL(DROP_SUBJECT_TABLE);
         db.execSQL(DROP_TABLE_NOTES);
+        db.execSQL(DROP_RESOURCE_TABLE);
         // Create tables again
-        onCreate(db);
+        onCreate(db);}
+
+    /* Methods for the note table */
+    // Add note
+    public void addNote(String noteDescription, String subjectDescription){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String insertStatement = "INSERT OR ABORT INTO " + TABLE_NOTES +
+                " VALUES ( '" + noteDescription + "',  '" + subjectDescription
+                + "', " + "CURRENT_TIMESTAMP" + ");";
+        db.execSQL(insertStatement);
     }
 
+    // Remove note
+    public void removeNote(String noteDescription){
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Delete a row
+        db.delete(TABLE_NOTES, COLUMN_NOTE_DESCRIPTION + " = ?",
+                new String[]{String.valueOf(noteDescription)});
+    }
+
+    // Get all notes (ordered by most recent)
+    public ArrayList<NoteObj> getAllNotes(){
+        String[] columns = {
+                COLUMN_NOTE_DESCRIPTION,
+                COLUMN_NOTE_SUBJECT_DESC,
+                COLUMN_NOTE_TIMESTAMP};
+
+        ArrayList<NoteObj> allNotes = new ArrayList<NoteObj>();
+
+        SQLiteDatabase dbSubject = this.getReadableDatabase();
+
+        String sortOrder = COLUMN_NOTE_TIMESTAMP + " ASC";
+
+        Cursor subjCursor = dbSubject.query(TABLE_NOTES,
+                columns,
+                null,
+                null,
+                null,
+                null,
+                sortOrder);
+
+        if (subjCursor.getCount() > 0) {
+            // ... while there is another value in the DB ...
+            while (subjCursor.moveToNext()) {
+                NoteObj note = new NoteObj();
+                note.setNote_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_DESCRIPTION)));
+                note.setNote_Subject_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_SUBJECT_DESC)));
+                note.setNote_Time(Timestamp.valueOf(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_TIMESTAMP))));
+                // Time stamp
+                allNotes.add(note);
+            }
+        }
+        subjCursor.close();
+        return allNotes;}
+
+    // Get all notes for specific subject (ordered by most recent)
+    // Not working - getting all subbjects.
+    public ArrayList<NoteObj> getNotesForSubject(String Subject){
+        String[] columns = {
+                COLUMN_NOTE_DESCRIPTION,
+                COLUMN_NOTE_SUBJECT_DESC,
+                COLUMN_NOTE_TIMESTAMP};
+
+        ArrayList<NoteObj> notesForSubject = new ArrayList<NoteObj>();
+
+        SQLiteDatabase dbSubject = this.getReadableDatabase();
+
+        String selection = COLUMN_NOTE_SUBJECT_DESC + " = ? ";
+
+        String[] selectionArgs = {Subject};
+
+        String sortOrder = COLUMN_NOTE_TIMESTAMP + " ASC";
+
+        Cursor subjCursor = dbSubject.query(TABLE_NOTES,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
+
+        if (subjCursor.getCount() > 0) {
+            // ... while there is another value in the DB ...
+            while (subjCursor.moveToNext()) {
+                NoteObj note = new NoteObj();
+                note.setNote_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_DESCRIPTION)));
+                note.setNote_Subject_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_SUBJECT_DESC)));
+                note.setNote_Time(Timestamp.valueOf(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_TIMESTAMP))));
+                // Time stamp
+                notesForSubject.add(note);
+            }
+        }
+        subjCursor.close();
+        return notesForSubject;
+    }
+
+    public NoteObj returnSpecificNote(String noteDescription) {
+        String[] columns = {
+                COLUMN_NOTE_DESCRIPTION,
+                COLUMN_NOTE_SUBJECT_DESC,
+                COLUMN_NOTE_TIMESTAMP};
+
+        ArrayList<NoteObj> notesForSubject = new ArrayList<NoteObj>();
+
+        SQLiteDatabase dbSubject = this.getReadableDatabase();
+
+        NoteObj note = new NoteObj();
+
+        String selection = COLUMN_NOTE_DESCRIPTION + " = ? ";
+
+        String[] selectionArgs = {noteDescription};
+
+        String sortOrder = COLUMN_NOTE_TIMESTAMP + " ASC";
+
+        Cursor subjCursor = dbSubject.query(TABLE_NOTES,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
+
+        if (subjCursor.getCount() > 0) {
+            // ... while there is another value in the DB ...
+            while (subjCursor.moveToNext()) {
+                note.setNote_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_DESCRIPTION)));
+                note.setNote_Subject_Description(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_SUBJECT_DESC)));
+                note.setNote_Time(Timestamp.valueOf(subjCursor.getString(subjCursor.getColumnIndex(COLUMN_NOTE_TIMESTAMP))));
+                // Time stamp
+                notesForSubject.add(note);
+            }
+        } return note; }
+
+    /* Methods for the calendar event table */
+    // Add calendar event
+    // Remove calendar event
+    // Get all calendar events for a specific date
+
     /* Methods for the homework table */
+    // Add homework record
+    // Remove homework table
+    // Update homework table
 
-    /* Methods for the calendar_event table */
+    /* Methods for the homework resource table */
+    // Add a homework resource
+    // Remove a homework resource
+    // Get all homework resources for a specific homework task
 
-    /* Methods for
+    /* Methods for lesson table */
+    // Get all lessons for a specific date, for a specific week (A or B)
+
+    /* Methods for lesson resource table */
+    // Add a lesson resource
+    // Get all resource information for a specific subject
+
 
     /* Methods for the subjects table */
     public ArrayList<subjectObj> getAllSubjects(){
@@ -353,7 +489,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         subjCursor.close();
         return subjectInfo;}
-
 
     /**
      * Methods for the user table

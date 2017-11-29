@@ -132,6 +132,8 @@ public class testDatabase {
         System.out.println("Record in database should return true. Returned: " + shouldntFailAsIsInDatabase);
     }*/
 
+    // Test ID = 7
+    // Tests to see if the subjects returns correctly.
     // Test 1: didn't work because of syntax errors in SQL create statements
     // Test 2: didn't work because of the get all subjects method
         // Didn't work as parameters weren't updated
@@ -142,4 +144,69 @@ public class testDatabase {
         for(subjectObj s : hmso) {
         System.out.println(s);
     }}
+
+    /*
+    * Test ID = 8
+    * Tests to see if notes can be added correctly.
+    * Test 1: syntax of entry was incorrect
+    * Test 2: changed syntax to literal "CURRENT_TIMESTAMP". Now works.
+     */
+    @Test
+    public void testAddNote(){
+        helper.addNote("This is a test note", "English");
+    }
+
+    /*
+    * Test ID = 9
+    * Tests to see if notes can be removed correctly
+    * Test 1: worked fine.
+     */
+    @Test
+    public void testRemoveNote(){
+        helper.addNote("This is a test note", "English");
+        helper.removeNote("This is a test note");}
+
+    /*
+    * Test ID = 10
+    * Tests to see if notes commit correctly
+    *
+    * Test 1: worked fine
+     */
+    @Test
+    public void testCommitsOfAllnotes(){
+        helper.addNote("This is a test note", "English");
+        ArrayList<NoteObj> note = helper.getAllNotes();
+        for(NoteObj n : note){
+            System.out.println(n);}}
+
+    /*
+    * Test ID = 11
+    * Tests to make sure that notes are unique for specific subjects, and that data of all notes can
+    * be gathered on a specific subject.
+    * Test 1: "note descriptions are unique"
+    * Test 2: not working - values are not unique error
+    * Test 3: not working - values are not unique to subject
+    * Test 4: Changed parameters on database helper, working fine.
+     */
+    @Test
+    public void testAllCommitsForNotesOfASpecificSubject(){
+        helper.addNote("This is a test note", "English");
+        helper.addNote("This is a 2nd note", "English");
+        helper.addNote("Nothing", "French");
+        ArrayList<NoteObj> note = helper.getNotesForSubject("English");
+        for(NoteObj n : note){
+            System.out.println(n);}}
+
+    @Test
+    /*
+    * Test ID = 12
+    * Tests to see if notes can be obtained, based on a specific note description.
+    * Works fine
+     */
+    public void testCommitsForNotesOfSpecificSubjects(){
+        helper.addNote("This is a test note", "English");
+        helper.addNote("This is a 2nd test note", "English");
+        helper.returnSpecificNote("This is a test note");
+    }
+
 }
