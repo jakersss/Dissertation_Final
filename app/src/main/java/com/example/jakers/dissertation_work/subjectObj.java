@@ -4,25 +4,39 @@ package com.example.jakers.dissertation_work;
  * Created by Jakers on 26/11/2017.
  */
 
-public class subjectObj{
+class subjectObj{
 
-    public String description;
-    public String teacher;
+    private String description;
+    private String teacher;
+    private String room;
+    private int picture;
+    private int numHomeworks;
 
-    public void setDescription(String description) {
+    public void setNumHomeworks(int numHomeworks) {this.numHomeworks = numHomeworks;}
+
+    public int getNumHomeworks() {return numHomeworks;}
+
+    public void setRoom(String room) {this.room = room;}
+
+    public String getRoom() {return room;}
+
+    public void setPicture(int picture) {
+        this.picture = picture;
+    }
+
+    public int getPicture() {return picture;}
+
+    void setDescription(String description) {
         this.description = description;
     }
 
-    public void setTeacher(String teacher) {
+    void setTeacher(String teacher) {
         this.teacher = teacher;
     }
 
-    public String getDescription() {
+    String getDescription() {return description;}
 
-        return description;
-    }
-
-    public String getTeacher() {
+    String getTeacher() {
         return teacher;
     }
 }

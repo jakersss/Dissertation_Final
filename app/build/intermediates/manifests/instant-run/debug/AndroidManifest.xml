@@ -17,6 +17,10 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.example.jakers.dissertation_work.subject"
+            android:label="@string/subject_title" >
+        </activity>
+        <activity
             android:name="com.example.jakers.dissertation_work.login"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -40,9 +44,6 @@
         <activity
             android:name="com.example.jakers.dissertation_work.map"
             android:label="@string/map_title" />
-        <activity
-            android:name="com.example.jakers.dissertation_work.subject"
-            android:label="@string/subject_title" />
 
         <meta-data
             android:name="android.support.VERSION"

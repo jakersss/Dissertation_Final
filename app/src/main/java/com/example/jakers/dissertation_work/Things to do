@@ -3,11 +3,15 @@ Things to do (a very top level view)
 - Revisit your initial plan
 - Validation on the DB login (Not done)
 - Get the login page working (DONE)
-- Create databases for other pages.
-- Get cards working for subject page (read comments)
+- Create tables for other pages. (DONE)
+- Abstract user views based on login
+- Work out how to access raw data stored as objects outside of memory addresses.
+- Redo tests...
+- Get cards working for subject page
 - Create the other pages of the program, create getters and setters
 - Test all the functions
 - Build all other functionality.
+- Remember to add individual teachers by subject
 
 Notes:
 - Validation of data entry isn't yet working.

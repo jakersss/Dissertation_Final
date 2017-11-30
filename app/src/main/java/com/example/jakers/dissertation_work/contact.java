@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 /**
  * Created by Jakers on 17/11/2017.
+ * ALSO describes year leaders, etc
  */
 
 public class contact extends AppCompatActivity {

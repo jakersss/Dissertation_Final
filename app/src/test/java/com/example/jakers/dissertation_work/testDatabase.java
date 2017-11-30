@@ -18,6 +18,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import static com.example.jakers.dissertation_work.DatabaseHelper.TABLE_NAME;
 
@@ -35,7 +36,7 @@ public class testDatabase {
 
     // Tests the add user function.
     @Before
-    public void setup(){
+    public void setup() {
         context = RuntimeEnvironment.application;
         // Provides temporary context
         helper = new DatabaseHelper(context);
@@ -45,7 +46,7 @@ public class testDatabase {
     }
 
     @After
-    public void close(){
+    public void close() {
         db.close();
     }
 
@@ -119,7 +120,7 @@ public class testDatabase {
      * Thoughts - are tests persistent?
      * Fix: Updated fields aren't persistent amongst tests.
      * When populated in DatabaseHelper, no longer working.
-    *//*
+     *//*
      @Test
     public void loginFailAndSuccess(){
         HashMap<String, String> users = helper.getAllUserNamesAndPasswords();
@@ -136,42 +137,42 @@ public class testDatabase {
     // Tests to see if the subjects returns correctly.
     // Test 1: didn't work because of syntax errors in SQL create statements
     // Test 2: didn't work because of the get all subjects method
-        // Didn't work as parameters weren't updated
+    // Didn't work as parameters weren't updated
     // Test 3: didn't print strings, printed references (which is fine).
-    @Test
+/*    @Test
     public void testAllSubjects(){
         ArrayList<subjectObj> hmso = helper.getAllSubjects();
         for(subjectObj s : hmso) {
         System.out.println(s);
     }}
 
-    /*
+    *//*
     * Test ID = 8
     * Tests to see if notes can be added correctly.
     * Test 1: syntax of entry was incorrect
     * Test 2: changed syntax to literal "CURRENT_TIMESTAMP". Now works.
-     */
+     *//*
     @Test
     public void testAddNote(){
         helper.addNote("This is a test note", "English");
     }
 
-    /*
+    *//*
     * Test ID = 9
     * Tests to see if notes can be removed correctly
     * Test 1: worked fine.
-     */
+     *//*
     @Test
     public void testRemoveNote(){
         helper.addNote("This is a test note", "English");
         helper.removeNote("This is a test note");}
 
-    /*
+    *//*
     * Test ID = 10
     * Tests to see if notes commit correctly
     *
     * Test 1: worked fine
-     */
+     *//*
     @Test
     public void testCommitsOfAllnotes(){
         helper.addNote("This is a test note", "English");
@@ -179,7 +180,7 @@ public class testDatabase {
         for(NoteObj n : note){
             System.out.println(n);}}
 
-    /*
+    *//*
     * Test ID = 11
     * Tests to make sure that notes are unique for specific subjects, and that data of all notes can
     * be gathered on a specific subject.
@@ -187,7 +188,7 @@ public class testDatabase {
     * Test 2: not working - values are not unique error
     * Test 3: not working - values are not unique to subject
     * Test 4: Changed parameters on database helper, working fine.
-     */
+     *//*
     @Test
     public void testAllCommitsForNotesOfASpecificSubject(){
         helper.addNote("This is a test note", "English");
@@ -198,15 +199,215 @@ public class testDatabase {
             System.out.println(n);}}
 
     @Test
-    /*
+    *//*
     * Test ID = 12
     * Tests to see if notes can be obtained, based on a specific note description.
     * Works fine
-     */
+     *//*
     public void testCommitsForNotesOfSpecificSubjects(){
         helper.addNote("This is a test note", "English");
         helper.addNote("This is a 2nd test note", "English");
         helper.returnSpecificNote("This is a test note");
+    }*/
+
+
+/*    @Test
+*//*
+    * Test ID = 13
+    * Tests to see if counting all values in a specific table works
+    * Test 1: Doesn't work - "no such table"
+    * Test 2: Works perfectly.
+    * Test 3: Added more parameters to the countRows function, all of a sudden not working.
+    * Test 4: Added breaks, now working perfectly.
+*//*
+    public void addRowsAndCountToMakeSureTheRowsHaveCommited(){
+        helper.addNote("This is a test note", "English");
+        helper.addNote("This is a 2nd note", "English");
+        helper.addNote("Nothing", "French");
+        long profilecount = helper.countRows("TABLE_NOTES");
+        System.out.println(profilecount);
+    }*/
+
+/*
+    @Test
+  * Test ID = 14
+    * Tests to see if data can be inserted as a calender event correctly.
+    * TEST 1: need to find the correct syntax for inserting times.
+    * TEST 2: Done. Not adding still.
+    * TEST 3: Dates need quotes.
+    * TEST 4: UPDATED CALENDAR ADDING PARAMETERS, SUDDENLY NOT WORKING. HAVE TO UPDATE THE CREATE DATABASE STATEMENT.
+    * I THINK THIS SHOULD BE HANDLED BETTER, AS SEPERATING METHODS AND SQL STATEMENTS BECOMES CONFUSING...
+    * *//*
+
+/*    public void testAddingCalendarEvents(){
+        helper.addCalendarEvent("Test event", "This is a test event", "21/03/2017",
+                "21:00:00", "22:00:00");
+        System.out.println(helper.countRows("TABLE_CALENDAR_EVENT"));
     }
 
+    *//*Test ID = 15
+    * Tests to see if data is removed.
+    * Test 1: data is removed effectively. Works.
+    * *//*
+    @Test
+    public void testRemovingCalendarEvents(){
+        helper.addCalendarEvent("Test event", "This is a test event", "21/03/2017",
+                "21:00:00", "22:00:00");
+        System.out.println(helper.countRows("TABLE_CALENDAR_EVENT"));
+        helper.removeCalendarEvent("This is a test event");
+        System.out.println(helper.countRows("TABLE_CALENDAR_EVENT"));
+        }
+
+    *//* Test ID = 16
+    *  Tests to see if you can get data for all events on a specific date.
+    *  Test 1: works.
+     *//*
+    @Test
+    public void testGetCalendarForSpecificDate(){
+        helper.addCalendarEvent("Test event", "This is a test event", "21/03/2017",
+                "21:00:00", "22:00:00");
+        ArrayList<calendarObj> ObjCalendar = helper.getCalendarEventForDate("15/03/2016");
+        for(calendarObj p : ObjCalendar){
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void testGetCalendarBasedOnTitle(){
+        helper.addCalendarEvent("Test event", "This is a test event", "21/03/2017",
+                "21:00:00", "22:00:00");
+        helper.getCalendarEventBasedOnTitle("Test event");
+        ArrayList<calendarObj> ObjCalendar = helper.getCalendarEventForDate("15/03/2016");
+        for(calendarObj p : ObjCalendar) {
+            System.out.println(p);
+        }}*/
+
+ /*   *//**
+     * Test ID = 19
+     * Tests getting details for a specific homework resource.
+     * Changed syntax of command, now works.
+     *//*
+    @Test
+    public void testGettingHomeworkDetails(){
+        helper.addHomework("This is a new homework", "English","Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        helper.getHomeworkDetails("This is a new homework");
+    }*/
+
+/*    *//**
+     * Test ID = 20
+     * Tests removing a homework object
+     * Changed syntax of getHomeworkDetails, now works.
+     *//*
+    @Test
+    public void testRemovingHomework(){
+        helper.addHomework("This is a new homework", "English","Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        helper.getHomeworkDetails("This is a new homework");
+        helper.removeHomework("This is a new homework");
+        helper.getHomeworkDetails("This is a new homework");
+    }*/
+
+/*    *//**
+     * Test ID = 21
+     * Tests updating a homework object
+     *//*
+    @Test
+    public void testUpdatingHomework(){
+        helper.addHomework("This is a new homework", "English","Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        helper.getHomeworkDetails("This is a new homework");
+        helper.updateHomework("This is a newish homework", "French", "My, set, of, new, tasks",
+                "20/10/2016");
+        helper.getHomeworkDetails("This is a newish homework");
+    }*/
+
+/*    *//**
+     * Test ID = 22
+     * Gets all homework for a specific day
+     * Test worked first time
+     *//*
+    @Test
+    public void getAllHomeworkForDay(){
+        helper.addHomework("This is a new homework", "English","Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        ArrayList<homeworkObj> homeworks = helper.getHomeworksForDay("19/10/2016");
+        for(homeworkObj homework : homeworks){
+            String hwd = homework.getHomework_desc();
+            String due = homework.getHomework_duedate();
+            String sub = homework.getHomework_subject();
+            String tasks = homework.getHomework_task();
+            System.out.println(hwd + " " + due + " " + sub + " " + tasks);
+        }}*/
+
+/*    *//**
+     * Test ID = 23
+     * Gets all homework for a specific subject
+     * Worked first time
+     *//*
+    @Test
+    public void getAllHomeworkForSubject() {
+        helper.addHomework("This is a new homework", "English", "Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        ArrayList<homeworkObj> homeworks = helper.getAllHomeworkForSubject("English");
+        for (homeworkObj homework : homeworks) {
+            String hwd = homework.getHomework_desc();
+            String due = homework.getHomework_duedate();
+            String sub = homework.getHomework_subject();
+            String tasks = homework.getHomework_task();
+            System.out.println(hwd + " " + due + " " + sub + " " + tasks);}}*/
+
+/*    *//**
+     * Test ID = 24
+     * Gets all homework resources
+     * Worked after correcting syntax errors
+     *//*
+    @Test
+    public void addHomeworkResource(){
+        helper.addHomework("This is a new homework", "English", "Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        helper.addHomeworkResource("This is a new homework", "Google drive",
+                "https://www.drive.google.com", null);
+    }*/
+
+    public void testUniqueHomeworks(){}
+
+    public void testUniqueResource(){}
+
+    /**
+     * Test ID = 25
+     * Gets all homework resources and homework tasks (i.e. information)
+     * Had trouble getting this to work - cursorOutOfBounds...
+     * Updated getHomeworkResourcesForHomework to include cursor.moveToFirst. Now works.
+     */
+    @Test
+    public void getHomeworkTasksForHomework(){
+        helper.addHomework("This is a new homework", "English", "Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        helper.addHomeworkResource("This is a new homework", "Google drive",
+                "https://www.drive.google.com", null);
+        helper.getAllTasksForHomework("This is a new homework");
+        helper.getHomeworkResourcesForHomework("This is a new homework");
+    }
+
+/*
+    */
+/**
+     * Test ID = 26
+     * Gets all homework details for a specific homework task.
+     * Changed syntax of getHomeworkDetails, now works.
+     *//*
+
+    @Test
+    public void getHomeworkDetailsForHomework(){
+        helper.addHomework("This is a new homework", "English", "Hi, There, I," +
+                "have, a, task", "19/10/2016");
+        homeworkObj homework = helper.getHomeworkDetails("This is a new homework");
+        System.out.println(homework);
+    }
+*/
+
+    /**
+     * Not yet tested as not populated - any DML on addressing lessons/lesson resources.
+     */
 }

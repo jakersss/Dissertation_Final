@@ -20,6 +20,7 @@ import static java.util.Calendar.*;
 // Add calendar functionality
 // Get logins working
 // Get database stuff working
+// You need to format date/time collection.
 
 /**
  * Created by Jakers on 17/11/2017.

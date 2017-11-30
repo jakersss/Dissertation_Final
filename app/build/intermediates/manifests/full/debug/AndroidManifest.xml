@@ -16,8 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.example.jakers.dissertation_work.subject"
+            android:label="@string/subject_title" >
+        </activity>
+        <activity
             android:name="com.example.jakers.dissertation_work.login"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.jakers.dissertation_work.MainActivity"
@@ -34,15 +43,6 @@
         <activity
             android:name="com.example.jakers.dissertation_work.map"
             android:label="@string/map_title" />
-        <activity
-            android:name="com.example.jakers.dissertation_work.subject"
-            android:label="@string/subject_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <meta-data
             android:name="android.support.VERSION"

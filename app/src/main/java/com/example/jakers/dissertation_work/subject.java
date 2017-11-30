@@ -3,6 +3,7 @@ package com.example.jakers.dissertation_work;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,6 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,45 +26,38 @@ import java.util.List;
     // Images are obtained depending on the teacher name (nested if adds image to card)
 
     // Status:
-        // Recycler view and subject layout are not being obtained
-        // Do this next.
-        // Current values are not being obtained
+        // Get teacher name nad subject appearing (DONE)
+        // Add pointer (DONE)
+        // Use glide to add image (DONE)
+        // Get room number (DONE)
+        // Get homeworks (DONE)
+        // Add click to redirect
 
 public class subject extends AppCompatActivity {
 
         private RecyclerView recyclerView;
         private subjectCardAdapter adapter;
         private ArrayList<subjectObj> subjectList;
-        private Context context;
-        private DatabaseHelper dbhelper;
-        private SQLiteDatabase db;
+        DatabaseHelper dbhelper;
+        SQLiteDatabase db;
 
         protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.subject_landing);
             dbhelper = new DatabaseHelper(this);
             db = dbhelper.getReadableDatabase();
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.subject_layout);
-            // Don't know if this will work
             recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-            // Creates a new arrayList, containing data which is to be queried.
-            subjectList = dbhelper.getAllSubjects();
-            adapter = new subjectCardAdapter(this, subjectList);
-            // Sets a grid layout manager on the recyclerView
-            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-            // Sets up the layout manager for the recycler view
-            recyclerView.setLayoutManager(layoutManager);
+            //subjectList = dbhelper.getAllSubjects();
+            adapter = new subjectCardAdapter(this);
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+            recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(adapter);
-
-            prepareSubjects();
-
-            // Glide with subjects for images
+            //prepareSubjects();
         }
 
-        private void prepareSubjects(){
-
-        }
+    // private void prepareSubjects(){}
 
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
         private int spanCount;
@@ -75,8 +70,7 @@ public class subject extends AppCompatActivity {
             this.includeEdge = includeEdge;
         }}
 
-    // Conversion for the copy paste features - converts DP to PX, because you can't use PX in Java, only XML.
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-}}
+    }}
