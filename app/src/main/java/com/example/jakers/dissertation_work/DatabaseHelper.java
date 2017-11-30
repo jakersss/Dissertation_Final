@@ -4,8 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -176,7 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_HOMEWORK_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_HOMEWORK + "(" +
                     COLUMN_HOMEWORK_ID + " INT NOT NULL PRIMARY KEY, " +
-                    COLUMN_HOMEWORK_DESC + " TEXT UNIQUE, " +
+                    COLUMN_HOMEWORK_DESC + " TEXT, " +
                     COLUMN_HOMEWORK_SUBJECT + " TEXT, " +
                     COLUMN_HOMEWORK_TASK + " TEXT, " +
                     COLUMN_HOMEWORK_DUEDATE + " DATE, " +
@@ -222,6 +224,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SUBJECT_SCIENCE =
             "INSERT OR IGNORE INTO " + TABLE_SUBJECT + " VALUES ('a.turing', 'Science', " +
                     "'Mr Davies', '902');";
+
+    // Insert statements for homework activities
 
     // Drop table statements
     private static final String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
@@ -559,7 +563,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String insert = "INSERT OR ABORT INTO " + TABLE_HOMEWORK + " VALUES (" + rowCount + ", '" +
                     Homework_desc + "', '" + Homework_Subject + "', '" + Homework_Task + "', '" +
                     Homework_dueDate + "');";
-            db.execSQL(insert);}
+            try{
+            db.execSQL(insert);} catch (SQLException e){
+                Log.e(DATABASE_NAME, e.toString());}}
 
     // Remove homework record
     public void removeHomework(String homeworkDescription){
@@ -617,6 +623,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 }
 
         }return homeworkobj;}
+
+        // Get all homework items
+        // Implement flags into this method
+        ArrayList<homeworkObj> getAllHomework(){
+            String[] columns = {
+                    COLUMN_HOMEWORK_DESC,
+                    COLUMN_HOMEWORK_SUBJECT,
+                    COLUMN_HOMEWORK_DUEDATE};
+
+            ArrayList<homeworkObj> homeworkObjects = new ArrayList<homeworkObj>();
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            String sortOrder = COLUMN_HOMEWORK_DUEDATE + " DESC";
+            Cursor cursor = db.query(TABLE_HOMEWORK,
+                    columns,
+                    null,
+                    null,
+                    null,
+                    null,
+                    sortOrder);
+
+            if (cursor.getCount() > 0) {
+                // ... while there is another value in the DB ...
+                while (cursor.moveToNext()) {
+                    homeworkObj hwo = new homeworkObj();
+                    hwo.setHomework_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DESC)));
+                    hwo.setHomework_duedate(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DUEDATE)));
+                    hwo.setHomework_subject(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_SUBJECT)));
+                    homeworkObjects.add(hwo);
+                }
+            }
+            db.close();
+            cursor.close();
+            return homeworkObjects;}
 
         // Get all homework for a specific day
         ArrayList<homeworkObj> getHomeworksForDay(String date){

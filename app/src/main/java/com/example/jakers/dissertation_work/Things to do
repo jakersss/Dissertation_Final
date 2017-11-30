@@ -4,17 +4,33 @@ Things to do (a very top level view)
 - Validation on the DB login (Not done)
 - Get the login page working (DONE)
 - Create tables for other pages. (DONE)
-- Abstract user views based on login
-- Work out how to access raw data stored as objects outside of memory addresses.
-- Redo tests...
-- Get cards working for subject page
-- Create the other pages of the program, create getters and setters
-- Test all the functions
-- Build all other functionality.
-- Remember to add individual teachers by subject
+- Get cards working for subject page (DONE)
+- Create homework card (DONE)
+- Improve cards (tomorrow...)
+- Change the homework database to include progress (taskcompleted flags for individual homework items);
+put this into the cards)
+- Search bar for homework elements
+- Implement onclick for homework and subjects
+- Implement adder for new homework elements, update dynamically
+- Create homework viewer/editor for individual homework tasks
+    - Resources fragment
+    - Tasks fragment
+    - Progress fragment
+    - Due fragment
+- Create calendar fragment, get calendar functionality working
+- Create index fragments, get index pages updating based on time of day
+- Create contact page (use subject contact form)
+- Make subjects clickable
+- Create individual subject pages
+- Create map page
+- Create note viewer/editor
 
-Notes:
-- Validation of data entry isn't yet working.
+- Assess validation needs for each database entry.
+- Abstract user views based on login, update data.
+- Redo tests.
+- Build all other functionality.
+
+- Add individual teachers by subject as pictures in fragments
 
 For version 2:
 - DOM to parse XML (currently just 'your name'); (- Add username and e-mail string to the menu bar)

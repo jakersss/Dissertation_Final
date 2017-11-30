@@ -29,4 +29,5 @@
     <string name="Room_Subject">Test!</string>
     <string name="Name_And_Room">This is a test</string>
     <string name="Subject_Title">This is a test</string>
+    <string name="Go_To_Homework"><![CDATA[>]]></string>
 </resources>

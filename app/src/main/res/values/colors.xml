@@ -6,4 +6,5 @@
     <color name="colourText">#FFFFFF</color>
     <color name="colourTextHint">#518C7C</color>
     <color name="colorTextHint">#51d8c7</color>
+    <color name="default_colour_value">#000000</color>
 </resources>

@@ -22,7 +22,7 @@
             android:paddingLeft="10dp" />
 
         <TextView
-            android:id="@+id/title_subject"
+            android:id="@+id/homeworkName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -33,10 +33,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/title_teacherNameAndRoom"
+            android:id="@+id/SubjectAndProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title_subject"
+            android:layout_below="@+id/homeworkName"
             android:layout_centerHorizontal="true"
             android:layout_toRightOf="@+id/subject_photo"
             android:paddingLeft="10dp"
@@ -47,7 +47,7 @@
             android:id="@+id/title_homeworksDue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title_teacherNameAndRoom"
+            android:layout_below="@id/SubjectAndProgress"
             android:layout_toRightOf="@+id/subject_photo"
             android:paddingLeft="10dp"
             android:text="@string/Room_Subject"

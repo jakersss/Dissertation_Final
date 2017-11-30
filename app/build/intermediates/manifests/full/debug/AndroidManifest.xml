@@ -14,6 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.jakers.dissertation_work.subject"
@@ -22,11 +23,6 @@
         <activity
             android:name="com.example.jakers.dissertation_work.login"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.jakers.dissertation_work.MainActivity"
@@ -39,7 +35,13 @@
             android:label="@string/contact_title" />
         <activity
             android:name="com.example.jakers.dissertation_work.homework"
-            android:label="@string/homework_title" />
+            android:label="@string/homework_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.example.jakers.dissertation_work.map"
             android:label="@string/map_title" />

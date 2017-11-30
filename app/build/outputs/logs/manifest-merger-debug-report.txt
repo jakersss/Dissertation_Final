@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\fd55b8d91e075e4a4929b1e278ec75ee\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:transition:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\transition-25.4.0.aar\51a77b580e299ad57f56fda616d29af0\AndroidManifest.xml:17:1-28:12
@@ -18,25 +18,25 @@ MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Jakers\.gradle
 MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\b7f5b862dcd01cbfb60251e56c5b15e6\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\816c71c1ed3f7e7456aea084411dca2f\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\8ebd9d4dcefa8bc534fb1885a85fef50\AndroidManifest.xml:17:1-31:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-40:12
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:5:5-39:19
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:5:5-40:19
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\fd55b8d91e075e4a4929b1e278ec75ee\AndroidManifest.xml:25:5-29:19
@@ -82,51 +82,51 @@ ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main
 	android:name
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:12:13-36
 activity#com.example.jakers.dissertation_work.login
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:15:9-22:20
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:15:9-18:20
 	android:screenOrientation
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:17:13-49
 	android:name
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:16:13-34
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:18:13-21:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:19:17-69
-	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:19:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:20:17-77
-	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:20:27-74
 activity#com.example.jakers.dissertation_work.MainActivity
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:23:9-27:20
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:19:9-23:20
 	android:label
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:25:13-48
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:21:13-48
 	android:theme
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:26:13-56
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:22:13-56
 	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:24:13-41
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:20:13-41
 activity#com.example.jakers.dissertation_work.calendar
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:28:9-29:40
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:24:9-25:40
 	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:25:13-37
 activity#com.example.jakers.dissertation_work.contact
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:30:9-32:52
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:26:9-28:52
 	android:label
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:32:13-50
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:28:13-50
 	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:31:13-36
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:27:13-36
 activity#com.example.jakers.dissertation_work.homework
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:33:9-35:53
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:29:9-36:20
 	android:label
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:35:13-51
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:31:13-51
 	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:34:13-37
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:30:13-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:32:13-35:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:33:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:34:17-77
+	android:name
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:34:27-74
 activity#com.example.jakers.dissertation_work.map
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:36:9-38:48
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:37:9-39:48
 	android:label
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:38:13-46
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:39:13-46
 	android:name
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:37:13-32
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:38:13-32
 uses-sdk
 INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml

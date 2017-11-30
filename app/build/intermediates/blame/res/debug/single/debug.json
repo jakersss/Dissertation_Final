@@ -1292,6 +1292,10 @@
         "source": "C:\\Users\\Jakers\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\fd55b8d91e075e4a4929b1e278ec75ee\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout_homework_card.xml.flat",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\layout\\homework_card.xml"
+    },
+    {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\Jakers\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\fd55b8d91e075e4a4929b1e278ec75ee\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
@@ -1570,6 +1574,10 @@
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_color_highlight_material.xml.flat",
         "source": "C:\\Users\\Jakers\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\fd55b8d91e075e4a4929b1e278ec75ee\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\layout_homework_fragment.xml.flat",
+        "source": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\src\\main\\res\\layout\\homework_fragment.xml"
     },
     {
         "merged": "C:\\Users\\Jakers\\AndroidStudioProjects\\Dissertation_Work2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_hide_password.xml.flat",
