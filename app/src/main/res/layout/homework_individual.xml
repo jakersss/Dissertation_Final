@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/dueDateandProgressContainers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+        android:id="@+id/dueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/back"
+        android:textSize="20dp"
+        android:text="This is a test"/>
+
+        <TextView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/back"
+        android:textSize="20dp"
+        android:text="This is a test"
+        android:layout_toRightOf="@id/dueDate"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resource_title"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dueDateandProgressContainers"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp">
+
+        <ImageView
+            android:id="@+id/resource_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingLeft="10dp"
+            android:src="@drawable/ic_menu_homework" />
+
+        <TextView
+            android:id="@+id/resources_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/resource_img"
+            android:text="Resources"
+            android:textColor="#000000"
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textSize="20dp" />
+
+        <ListView
+            android:id="@+id/resource_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resources_title"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/list_title"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resource_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp">
+
+        <ImageView
+            android:id="@+id/task_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:paddingLeft="10dp"
+            android:src="@drawable/ic_menu_homework" />
+
+        <TextView
+            android:id="@+id/task_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/task_img"
+            android:text="Resources"
+            android:textColor="#000000"
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textSize="20dp" />
+
+        <ListView
+            android:id="@+id/task_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

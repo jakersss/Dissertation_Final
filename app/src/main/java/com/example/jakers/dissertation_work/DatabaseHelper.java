@@ -7,12 +7,12 @@ import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.Array;
+import java.sql.PreparedStatement;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -76,8 +76,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HOMEWORK_ID = "homework_id";
     private static final String COLUMN_HOMEWORK_SUBJECT = "homework_subject";
     private static final String COLUMN_HOMEWORK_DESC = "homework_description";
-    private static final String COLUMN_HOMEWORK_TASK  = "homework_task";
     private static final String COLUMN_HOMEWORK_DUEDATE = "homework_due_date";
+
+    // Create columns for Homework tasks
+    private static final String COLUMN_HOMEWORK_TASK_HOMEWORK_DESC = "homework_id";
+    private static final String COLUMN_HOMEWORK_TASK_DESC = "homework_task_desc";
+    private static final String COLUMN_HOMEWORK_TASK_COMPLETED = "homework_completion_flag";
 
     // Create columns for homework_resources
     private static final String COLUMN_HOMEWORK_RESOURCE_DESCRIPTION = "Homework_Description";
@@ -95,6 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CALENDAR_EVENT = "calendar_event";
     private static final String TABLE_HOMEWORK = "Homework";
     private static final String TABLE_HOMEWORK_RESOURCE = "Homework_resource";
+    private static final String TABLE_HOMEWORK_TASK = "Homework_task";
 
     // Create column for Calendar_Events
     private static final String COLUMN_CALENDAR_EVENT_ID = "calendar_event_id";
@@ -134,6 +139,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_RESOURCE_TIMESTAMP + " DEFAULT CURRENT_TIMESTAMP, " +
                     "FOREIGN KEY (" + COLUMN_HOMEWORK_RESOURCE_DESCRIPTION + ") REFERENCES " +
                     TABLE_HOMEWORK + "(" + COLUMN_HOMEWORK_DESC + "));";
+
     // Create table statement - user
     private static final String CREATE_USER_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
@@ -177,15 +183,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // error handlign for this plz
     private static final String CREATE_HOMEWORK_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_HOMEWORK + "(" +
-                    COLUMN_HOMEWORK_ID + " INT NOT NULL PRIMARY KEY, " +
+                    COLUMN_HOMEWORK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_HOMEWORK_DESC + " TEXT, " +
                     COLUMN_HOMEWORK_SUBJECT + " TEXT, " +
-                    COLUMN_HOMEWORK_TASK + " TEXT, " +
-                    COLUMN_HOMEWORK_DUEDATE + " DATE, " +
-                    "FOREIGN KEY (" + COLUMN_HOMEWORK_SUBJECT + ") REFERENCES " +
-                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + ")," +
+                    COLUMN_HOMEWORK_DUEDATE + " TEXT, " +
                     "UNIQUE (" + COLUMN_HOMEWORK_DESC + ", " +
-                    COLUMN_HOMEWORK_SUBJECT + "));";
+                    COLUMN_HOMEWORK_SUBJECT + "), " +
+                    "FOREIGN KEY (" + COLUMN_HOMEWORK_SUBJECT + ") REFERENCES " +
+                    TABLE_SUBJECT + "(" + COLUMN_SUBJECT_SUBJECT + "));";
+
+    // Create table statements for homework tasks
+    private static final String CREATE_HOMEWORK_TASK_TABLE =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_HOMEWORK_TASK + "(" +
+                    COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + " TEXT, " +
+                    COLUMN_HOMEWORK_TASK_DESC + " TEXT, " +
+                    COLUMN_HOMEWORK_TASK_COMPLETED + " TEXT, " +
+                    "FOREIGN KEY (" + COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + ") REFERENCES " +
+                    TABLE_HOMEWORK + "(" + COLUMN_HOMEWORK_DESC + "), " +
+                    "UNIQUE (" + COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + ", " +
+                    COLUMN_HOMEWORK_TASK_DESC + "));";
 
     // Implements data to login - how this is managed needs to be changed.
     private static final String SETUP_USER_ACCOUNTS1 =
@@ -236,6 +252,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DROP_CALENDAR_EVENT_TABLE = "DROP TABLE IF EXISTS " + TABLE_CALENDAR_EVENT;
     private static final String DROP_HOMEWORK_TABLE= "DROP TABLE IF EXISTS " + TABLE_HOMEWORK;
     private static final String DROP_HOMEWORK_RESOURCE_TABLE = "DROP TABLE IF EXISTS " + TABLE_HOMEWORK_RESOURCE;
+    private static final String DROP_HOMEWORK_TASK_TABLE = "DROP TABLE IF EXISTS " + TABLE_HOMEWORK_TASK;
 
     //Constructor
     DatabaseHelper(Context context) {
@@ -253,6 +270,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_HOMEWORK_TABLE);
         db.execSQL(CREATE_HOMEWORK_RESOURCE);
         db.execSQL(CREATE_LESSON_RESOURCE_TABLE);
+        db.execSQL(CREATE_HOMEWORK_TASK_TABLE);
         // Sets up the user accounts
         db.execSQL(SETUP_USER_ACCOUNTS1);
         db.execSQL(SETUP_USER_ACCOUNTS2);
@@ -273,6 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_CALENDAR_EVENT_TABLE);
         db.execSQL(DROP_HOMEWORK_RESOURCE_TABLE);
         db.execSQL(DROP_HOMEWORK_TABLE);
+        db.execSQL(DROP_HOMEWORK_TASK_TABLE);
         db.execSQL(DROP_LESSON_TIMETABLE_TABLE);
         db.execSQL(CREATE_LESSON_RESOURCE_TABLE);
         db.execSQL(DROP_SUBJECT_TABLE);
@@ -553,26 +572,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allEvents;}
 
         // Add homework record
-        public void addHomework(String Homework_desc, String Homework_Subject, String Homework_Task,
-                                String Homework_dueDate) {
+        // Originally wouldn't add elements with an apostrophe. This has been changed.
+        public void addHomework(String Homework_desc, String Homework_Subject, String Homework_dueDate) {
 
-            long rowCount = countRows("TABLE_HOMEWORK");
+            /*long rowCount = countRows("TABLE_HOMEWORK");
+            rowCount += 1;*/
 
             SQLiteDatabase db = this.getWritableDatabase();
 
-            String insert = "INSERT OR ABORT INTO " + TABLE_HOMEWORK + " VALUES (" + rowCount + ", '" +
-                    Homework_desc + "', '" + Homework_Subject + "', '" + Homework_Task + "', '" +
+            Homework_desc = Homework_desc.replace("'", "");
+
+            String insert = "INSERT OR ABORT INTO " + TABLE_HOMEWORK + "(" +
+                     COLUMN_HOMEWORK_DESC + ", " +
+                    COLUMN_HOMEWORK_SUBJECT + ", " + COLUMN_HOMEWORK_DUEDATE +
+                    ") VALUES ( '" + Homework_desc + "', '" + Homework_Subject + "', '" +
                     Homework_dueDate + "');";
+
             try{
             db.execSQL(insert);} catch (SQLException e){
-                Log.e(DATABASE_NAME, e.toString());}}
+                Log.e(DATABASE_NAME, e.toString());}
+            db.close();
+        }
 
     // Remove homework record
-    public void removeHomework(String homeworkDescription){
+    public void removeHomework(String homeworkDescription, String subject){
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete a row
-        db.delete(TABLE_HOMEWORK, COLUMN_HOMEWORK_DESC + " = ?",
-            new String[]{String.valueOf(homeworkDescription)});
+        db.delete(TABLE_HOMEWORK, COLUMN_HOMEWORK_DESC + " = ?"
+                + COLUMN_HOMEWORK_SUBJECT + " = ? ",
+            new String[]{String.valueOf(homeworkDescription), subject});
+        deleteAllHomeworkTasks(homeworkDescription);
         db.close();}
 
     // Update homework table
@@ -584,7 +613,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_HOMEWORK_DESC, Homework_desc);
         values.put(COLUMN_HOMEWORK_SUBJECT, Homework_Subject);
-        values.put(COLUMN_HOMEWORK_TASK, Homework_Task);
         values.put(COLUMN_HOMEWORK_DUEDATE, Homework_dueDate);
 
         db.update(TABLE_HOMEWORK, values, COLUMN_HOMEWORK_DESC + " = ?",
@@ -596,7 +624,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String[] columns = {
                     COLUMN_HOMEWORK_DESC,
                     COLUMN_HOMEWORK_SUBJECT,
-                    COLUMN_HOMEWORK_TASK,
                     COLUMN_HOMEWORK_DUEDATE};
 
             // Will fail if multiple records are implemented.
@@ -616,7 +643,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             if (cursor.getCount() > 0){
                 while (cursor.moveToNext()) {
-                    homeworkobj.setHomework_task(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK)));
                     homeworkobj.setHomework_subject(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_SUBJECT)));
                     homeworkobj.setHomework_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DESC)));
                     homeworkobj.setHomework_duedate(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DUEDATE)));
@@ -663,7 +689,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String[] columns = {
                     COLUMN_HOMEWORK_DESC,
                     COLUMN_HOMEWORK_SUBJECT,
-                    COLUMN_HOMEWORK_TASK,
                     COLUMN_HOMEWORK_DUEDATE};
 
             ArrayList<homeworkObj> homeworkObjects = new ArrayList<homeworkObj>();
@@ -688,7 +713,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     hwo.setHomework_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DESC)));
                     hwo.setHomework_duedate(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DUEDATE)));
                     hwo.setHomework_subject(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_SUBJECT)));
-                    hwo.setHomework_task(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK)));
                     homeworkObjects.add(hwo);
                 }
             }
@@ -721,7 +745,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
             COLUMN_HOMEWORK_DESC,
             COLUMN_HOMEWORK_SUBJECT,
-            COLUMN_HOMEWORK_TASK,
             COLUMN_HOMEWORK_DUEDATE};
 
         ArrayList<homeworkObj> homeworkObjects = new ArrayList<homeworkObj>();
@@ -746,7 +769,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 hwo.setHomework_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DESC)));
                 hwo.setHomework_duedate(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_DUEDATE)));
                 hwo.setHomework_subject(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_SUBJECT)));
-                hwo.setHomework_task(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK)));
                 homeworkObjects.add(hwo);
             }
         }
@@ -772,28 +794,167 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.delete(TABLE_HOMEWORK_RESOURCE, COLUMN_HOMEWORK_RESOURCE_DESCRIPTION + " = ?",
                     new String[]{String.valueOf(ResourceDesc)});}
 
-        public String getAllTasksForHomework(String homeworkTask){
-        String[] columns = {COLUMN_HOMEWORK_TASK};
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String tasks;
-        String selection = COLUMN_HOMEWORK_DESC + " = ? ";
-        String[] selectionArgs = {homeworkTask};
-
-        Cursor cursor = db.query(TABLE_HOMEWORK,
-                columns,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-
-        cursor.moveToFirst();
-        tasks = cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK));
-        return tasks;
+        public void deleteAllHomeworkTasks(String homeworkDesc){
+            String delete = "DELETE FROM " + TABLE_HOMEWORK_TASK + " WHERE "
+                    + COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + " = " + homeworkDesc + ";";
         }
 
-        // Get all homework resources for a specific homework task
+        public void addHomeworkTask(String homeworkDesc, String taskName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String insert = "INSERT OR ABORT INTO " + TABLE_HOMEWORK_TASK + " VALUES ('" +
+        homeworkDesc + "', '" + taskName + "', '" + 0 + "');";
+        db.execSQL(insert);
+        db.close();}
+
+        public void removeHomeworkTask(String taskName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String delete = "DELETE FROM " + TABLE_HOMEWORK_TASK + " WHERE " +
+                COLUMN_HOMEWORK_TASK_DESC + " = '" + taskName + "';";
+        db.execSQL(delete);
+        db.close();
+        }
+
+        // Must first exist. No validation, doesn't need it as homework must first exist to be shown to the user.
+        public void setTaskStatus(String homeworkID, String homeworkTaskDesc, String flag){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_HOMEWORK_TASK_DESC, homeworkID);
+            values.put(COLUMN_HOMEWORK_TASK_HOMEWORK_DESC, homeworkTaskDesc);
+            values.put(COLUMN_HOMEWORK_TASK_COMPLETED, flag);
+
+            switch(flag){
+                case "0":
+                    db.update(TABLE_HOMEWORK_TASK, values, COLUMN_HOMEWORK_TASK_DESC + " = ?",
+                            new String[]{String.valueOf(homeworkTaskDesc)});
+                case "1":
+                    db.update(TABLE_HOMEWORK_TASK, values, COLUMN_HOMEWORK_TASK_DESC + " = ?",
+                            new String[]{String.valueOf(homeworkTaskDesc)});
+            db.close();}}
+
+        public ArrayList<Double> determineProgressForAllHomeworks(){
+
+            ArrayList<Double> progressList = new ArrayList<Double>();
+
+            String[] columns = {COLUMN_HOMEWORK_TASK_HOMEWORK_DESC};
+
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursor = db.query(TABLE_HOMEWORK_TASK,
+                    columns,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+
+            // For each individual homework task, perfom determineprogressForIndividualTask
+
+            if(cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    double progress = determineProgressForIndividualTask(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK_HOMEWORK_DESC)));
+
+                    progressList.add(progress);
+                }
+                db.close();
+            }return progressList;}
+
+
+        public double determineProgressForIndividualTask(String homeworkDescription){
+            double sumTotal;
+            double complete = getAllTaskStatus(homeworkDescription, "1");
+            double incomplete = getAllTaskStatus(homeworkDescription, "0");
+            // Stops division by 0
+            if(complete == 0){
+                complete =+ 1;
+                sumTotal = complete + incomplete;
+                double sumPercentage = (double) ((complete/sumTotal) * 100);
+            } else if (incomplete == 0){
+                incomplete =+ 1;
+                sumTotal = complete + incomplete;
+                double sumPercentage = (double) ((complete/sumTotal) * 100);
+            }
+                sumTotal = complete + incomplete;
+            double sumPercentage = (double) ((complete/sumTotal) * 100);
+            return sumPercentage;
+        }
+
+        // Working on this.
+        public double getAllTaskStatus(String taskID, String flag) {
+            String[] columns = {COLUMN_HOMEWORK_TASK_HOMEWORK_DESC,
+                    COLUMN_HOMEWORK_TASK_DESC, COLUMN_HOMEWORK_TASK_COMPLETED};
+
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            String selection = COLUMN_HOMEWORK_TASK_DESC + " = ? " + " AND " +
+            COLUMN_HOMEWORK_TASK_COMPLETED + " = ?";
+            // Might be not working because flag isn't given as a string...
+            String[] selectionArgs = {taskID, flag};
+
+            Cursor cursor = db.query(TABLE_HOMEWORK_TASK,
+                    columns,
+                    selection,
+                    selectionArgs,
+                    null,
+                    null,
+                    null);
+
+            double cursorCount = (double) cursor.getCount();
+            db.close();
+            return cursorCount;}
+/*            SQLiteDatabase db = this.getReadableDatabase();
+            // Select all counts as complete from specific homework tasks.
+            String queryCompleted =
+                    ("select COUNT(" + COLUMN_HOMEWORK_TASK_COMPLETED + ") FROM "
+                    + TABLE_HOMEWORK_TASK + " WHERE " + COLUMN_HOMEWORK_TASK_HOMEWORK_DESC +
+                    " = '" + taskDescription + "' AND " + COLUMN_HOMEWORK_TASK_COMPLETED + " = " +
+                    "1");
+            db.execSQL(queryCompleted);
+//            return Integer.parseInt(queryCompleted);
+            return 0;*/
+
+        /*private int getAllIncompleteTasks(String homeworkDescription){
+        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteStatement countAllIncomplete = db.compileStatement
+                ("select COUNT(" + COLUMN_HOMEWORK_TASK_COMPLETED + ") FROM "
+                        + TABLE_HOMEWORK_TASK + " WHERE " + COLUMN_HOMEWORK_TASK_HOMEWORK_DESC +
+                        " = '" + homeworkDescription + "' AND " + COLUMN_HOMEWORK_TASK_COMPLETED + " = " +
+                        "0");
+        return (int) countAllIncomplete.simpleQueryForLong();
+        }*/
+
+        public ArrayList<HWListObj> getTasksForHomework(String homeworkDesc){
+
+            String[] columns = {COLUMN_HOMEWORK_TASK_HOMEWORK_DESC,
+            COLUMN_HOMEWORK_TASK_DESC, COLUMN_HOMEWORK_TASK_COMPLETED};
+
+            ArrayList<HWListObj> tasksForHomework = new ArrayList<HWListObj>();
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            String selection = COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + " = ? ";
+            String[] selectionArgs = {homeworkDesc};
+
+            Cursor cursor = db.query(TABLE_HOMEWORK_TASK,
+                    columns,
+                    selection,
+                    selectionArgs,
+                    null,
+                    null,
+                    null);
+
+            if(cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    HWListObj hwlist = new HWListObj();
+                    hwlist.setHomework_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK_HOMEWORK_DESC)));
+                    hwlist.setTask_desc(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK_DESC)));
+                    hwlist.setCompleted(cursor.getString(cursor.getColumnIndex(COLUMN_HOMEWORK_TASK_COMPLETED)));
+                    tasksForHomework.add(hwlist);
+                }
+                db.close();
+            }return tasksForHomework;}
+    /*
+     * Methods for homework resources
+     */
+    // Get all homework resources for a specific homework task
         public ArrayList<homeworkResourceObj> getHomeworkResourcesForHomework(String homeworkTask){
         String[] columns = {
                     COLUMN_HOMEWORK_RESOURCE_DESCRIPTION,
@@ -876,7 +1037,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void addLessonResource(String description, String resourceName, String resourceURL){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String insert = "INSERT INTO " + TABLE_RESOURCE + " VALUES ('" + description + "', '" +
+        String insert = "INSERT OR ABORT INTO " + TABLE_RESOURCE + " VALUES ('" + description + "', '" +
                 resourceName + "', '" + resourceURL + ");";
 
         db.execSQL(insert);}
@@ -1059,9 +1220,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Updates a user record's password (not their username on name, these are not likely to change...)
     public void updateUserPassword(String username, String NewPassword) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-//    HashMap<String, String> users = getAllUserNamesAndPasswords();
-//    if(users.containsKey(username)){
 
         // Set content values...
         ContentValues values = new ContentValues();

@@ -32,8 +32,15 @@ public class homework extends AppCompatActivity {
         setContentView(R.layout.homework_layout);
         dbhelper = new DatabaseHelper(this);
         db = dbhelper.getReadableDatabase();
+        // Not adding correctly.
+        dbhelper.addHomework("this is a test", "maths",
+                "16/04/2018");
         dbhelper.addHomework("this is a test", "english",
-                "this, is, a, test", "16/04/2018");
+                "16/04/2018");
+        dbhelper.addHomework("this isn't a test", "science",
+                "16/04/2018");
+        ArrayList<homeworkObj> homeworkgettest = dbhelper.getAllHomework();
+        int x = homeworkgettest.size();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_homework);
         adapter = new homeworkAdapter(this);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);

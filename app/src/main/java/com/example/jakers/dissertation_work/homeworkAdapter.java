@@ -28,6 +28,7 @@ public class homeworkAdapter extends RecyclerView.Adapter<homeworkAdapter.ViewHo
     // Gets global variables, to be referenced later on.
     private Context mContext;
     private ArrayList<homeworkObj> homeworkList;
+    private ArrayList<Double> progress;
 
     // Calls self, to initialise.
     public class ViewHolder extends RecyclerView.ViewHolder {

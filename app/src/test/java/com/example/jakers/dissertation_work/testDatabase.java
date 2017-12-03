@@ -20,6 +20,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import dalvik.annotation.TestTarget;
+
 import static com.example.jakers.dissertation_work.DatabaseHelper.TABLE_NAME;
 
 /**
@@ -370,16 +372,12 @@ public class testDatabase {
                 "https://www.drive.google.com", null);
     }*/
 
-    public void testUniqueHomeworks(){}
-
-    public void testUniqueResource(){}
-
-    /**
+/*    *//**
      * Test ID = 25
      * Gets all homework resources and homework tasks (i.e. information)
      * Had trouble getting this to work - cursorOutOfBounds...
      * Updated getHomeworkResourcesForHomework to include cursor.moveToFirst. Now works.
-     */
+     *//*
     @Test
     public void getHomeworkTasksForHomework(){
         helper.addHomework("This is a new homework", "English", "Hi, There, I," +
@@ -388,11 +386,12 @@ public class testDatabase {
                 "https://www.drive.google.com", null);
         helper.getAllTasksForHomework("This is a new homework");
         helper.getHomeworkResourcesForHomework("This is a new homework");
-    }
+    }*/
 
 /*
     */
-/**
+
+    /**
      * Test ID = 26
      * Gets all homework details for a specific homework task.
      * Changed syntax of getHomeworkDetails, now works.
@@ -407,7 +406,76 @@ public class testDatabase {
     }
 */
 
-    /**
-     * Not yet tested as not populated - any DML on addressing lessons/lesson resources.
-     */
-}
+/*    // Task ID = 27
+    // Add homework resouce to homework that exists
+    // Failed on homework task - could not insert new task. Syntax was wrong.
+    // New tasks are inserted, information for new tasks isn't being obtained.
+    // Failed - initial value for homework task was not set correctly.
+    // Now working - had to change the value of the task homework object to String.
+    @Test
+    public void addHomeworkToTask() {
+        helper.addHomework("This is a test", "English", "10/12/2017");
+        helper.addHomeworkTask("This is a test", "This");
+        helper.addHomeworkTask("This is a test", "Is");
+        helper.addHomeworkTask("This is a test", "A");
+        helper.addHomeworkTask("This is a test", "Test");
+        helper.getTasksForHomework("This is a test");
+    }
+
+*//*    @Test
+    // Add duplicate homework tasks
+    // Works - crashes the program. Needs to be sorted out.
+    public void testUniqueHomeworkTasks(){
+        helper.addHomework("This is a test", "English", "10/12/2017");
+        helper.addHomeworkTask("This is a test", "This");
+        helper.addHomeworkTask("This is a test", "This");
+    }*//*
+
+    // Update homework flags, and test.
+    // Works
+    @Test
+    public void testFlagChange() {
+        helper.addHomework("This is a test", "English", "10/12/2017");
+        helper.addHomeworkTask("This is a test", "This");
+        helper.setTaskStatus("This is a test", "This", "1");
+    }
+
+
+    // Remove homework tasks individually
+    @Test
+    public void removeHomework() {
+        helper.addHomework("This is a test", "English", "10/12/2017");
+        helper.addHomeworkTask("This is a test", "This");
+        helper.removeHomework("This is a test");
+    }*/
+
+/*    // Test ID = 31
+    // Did not work straight away - select statement syntax was wrong - couldn't query string variable
+    // Fixed - now returning incorrect values.
+    // Tasks are being set correctly, but there is a problem in getting these values back. The program is ignoring the values.
+    // Changing the 'determine progress' method to include a flag parameter, which streamlines the code - one method is used
+    // to query the DB instead of 2.
+    // I know adding 'stuff' works.
+    // Adding things and querying things works.
+    // Needed to cast as a double - that was the issue.
+    // Works fine now.
+
+    // YOU HAVE TO UPDATE THE PROGRAM SO THE COUNTERS ARE CLOSED.
+    @Test
+    public void testHomeworkProgress() {
+        helper.addHomework("This is a test", "English", "10/12/2017");
+        helper.addHomeworkTask("This is a test", "This");
+        helper.addHomeworkTask("This is a test", "Is");
+        helper.addHomeworkTask("This is a test", "A");
+        helper.addHomeworkTask("This is a test", "Test");
+        helper.setTaskStatus("This is a test", "This", "1");
+        helper.setTaskStatus("This is a test", "Is", "0");
+        helper.setTaskStatus("This is a test", "A", "1");
+        helper.setTaskStatus("This is a test", "Test", "0");
+        double x = helper.determineProgress("This is a test");
+        System.out.println(x);*/
+
+/*Test ID = 32
+* Tests to see if an arraylist can be obtained for all homework elements.
+ */
+    }

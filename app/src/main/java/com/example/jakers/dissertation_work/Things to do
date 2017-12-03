@@ -6,19 +6,36 @@ Things to do (a very top level view)
 - Create tables for other pages. (DONE)
 - Get cards working for subject page (DONE)
 - Create homework card (DONE)
-- Improve cards (tomorrow...)
-- Change the homework database to include progress (taskcompleted flags for individual homework items);
-put this into the cards)
-- Search bar for homework elements
-- Implement onclick for homework and subjects
-- Implement adder for new homework elements, update dynamically
+- Change the homework database to include progress (taskcompleted flags for individual homework items)
+- Generate percentage acheieved (DONE)
+
+REMEMBER, YOU DECIDED TO NOT HAVE TASKS IN YOUR HOMEWORK SECTION.
+
+- Fix homework autoincrement.
+- put this into the cards (NOT DONE, COME BACK TO)
+- Add homeworks to cards. (NOT DONE)
+
+- Data into homework pages
+- Implement adder for new homework elements, update dynamically (NOT DONE)
+
+- IMPROVE CALENDAR TO AUTOINCREMENT...
+
 - Create homework viewer/editor for individual homework tasks
     - Resources fragment
     - Tasks fragment
     - Progress fragment
     - Due fragment
+
+- Implement validation of insert or abort data entry.
+
+- Implement onclick for homework and subjects to redirect once subject and homework cards have been designed
+
+- Improve homework to be arranged by date, and include homework date.
+
 - Create calendar fragment, get calendar functionality working
-- Create index fragments, get index pages updating based on time of day
+- Create index fragments, get index pages updating based on time of day (BY END OF WEEKEND)
+- Implement try/catch statements for insert or abort statements
+
 - Create contact page (use subject contact form)
 - Make subjects clickable
 - Create individual subject pages
