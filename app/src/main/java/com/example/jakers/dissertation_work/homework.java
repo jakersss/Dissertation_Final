@@ -47,12 +47,12 @@ public class homework extends AppCompatActivity {
         });
         dbhelper = new DatabaseHelper(this);
         db = dbhelper.getReadableDatabase();
-        // Not adding correctly.
-        dbhelper.addHomework("this is a test", "maths",
+        // This isn't final. Just test data.
+        dbhelper.addHomework("this is a test", "Maths",
                 "16/04/2018");
-        dbhelper.addHomework("this is a test", "english",
+        dbhelper.addHomework("this is a test", "English",
                 "16/04/2018");
-        dbhelper.addHomework("this isn't a test", "science",
+        dbhelper.addHomework("this isn't a test", "Science",
                 "16/04/2018");
         dbhelper.addHomeworkResource("this is a test", "Google Drive",
                 "maths", "http://www.google.com", null);
@@ -78,8 +78,10 @@ public class homework extends AppCompatActivity {
                             Snackbar remove = Snackbar.make(recyclerView, removed, Snackbar.LENGTH_SHORT);
                             remove.show();
                             // Refreshes the screen.
-                            Intent startAgain = new Intent(getApplicationContext(), homework.class);
-                            startActivity(startAgain);
+                            Intent refresh = new Intent(getApplicationContext(), homework.class);
+                            // Removes the animation. The view just refreshes.
+                            refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            getApplicationContext().startActivity(refresh);
                         }});sb.show();}
 
         // Shows snackbar in case homework has been added
@@ -91,6 +93,7 @@ public class homework extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);}
 
+        // Adds decoration to the card view
         public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
         private int spanCount;
         private int spacing;
