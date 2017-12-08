@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\fd55b8d91e075e4a4929b1e278ec75ee\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:transition:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\transition-25.4.0.aar\51a77b580e299ad57f56fda616d29af0\AndroidManifest.xml:17:1-28:12
@@ -18,25 +18,25 @@ MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\Jakers\.gradle
 MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.4.0.aar\b7f5b862dcd01cbfb60251e56c5b15e6\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\816c71c1ed3f7e7456aea084411dca2f\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\8ebd9d4dcefa8bc534fb1885a85fef50\AndroidManifest.xml:17:1-31:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-41:12
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:1-46:12
 		INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:5:5-40:19
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:5:5-45:19
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\design-25.4.0.aar\7f7352bc5c65e71c2d20284094b6afdf\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\Jakers\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\fd55b8d91e075e4a4929b1e278ec75ee\AndroidManifest.xml:25:5-29:19
@@ -127,6 +127,16 @@ ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:39:13-46
 	android:name
 		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:38:13-32
+activity#com.example.jakers.dissertation_work.homeworkEntry
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:40:9-42:51
+	android:label
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:42:13-49
+	android:name
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:41:13-42
+activity#com.example.jakers.dissertation_work.homeworkViewIndividual
+ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:43:9-44:53
+	android:name
+		ADDED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml:44:13-51
 uses-sdk
 INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Jakers\AndroidStudioProjects\Dissertation_Work2\app\src\main\AndroidManifest.xml

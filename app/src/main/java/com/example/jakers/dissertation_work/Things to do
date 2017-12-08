@@ -11,29 +11,48 @@ Things to do (a very top level view)
 
 REMEMBER, YOU DECIDED TO NOT HAVE TASKS IN YOUR HOMEWORK SECTION.
 
-- Fix homework autoincrement.
+- Fix homework autoincrement. (DONE)
 - put this into the cards (NOT DONE, COME BACK TO)
-- Add homeworks to cards. (NOT DONE)
+- Add homeworks to cards. (DONE)
 
-- Data into homework pages
-- Implement adder for new homework elements, update dynamically (NOT DONE)
-
-- IMPROVE CALENDAR TO AUTOINCREMENT...
+- Data into homework pages (DONE)
 
 - Create homework viewer/editor for individual homework tasks
-    - Resources fragment
-    - Tasks fragment
-    - Progress fragment
-    - Due fragment
+    - Resources fragment (DONE)
+    - Tasks fragment (DONE)
+    - Progress fragment (DONE)
+    - Due fragment (DONE)
 
-- Implement validation of insert or abort data entry.
+- Implement adder for new homework elements, update dynamically (DONE)
+
+- IMPROVE CALENDAR TO AUTOINCREMENT... (DONE)
+
+- Implement validation of insert or abort data entry. (DONE)
+
+- Add title... (DONE)
+
+- Adding homework events (DONE)
+
+- Removing homework events after
+
+- Onclick on resources/tasks, and deleting...
+- Update date/completion
+- Update listview programatically
+- editing HW elements
+- Subject
+- Calendar
+- Map
+- Contact
+- Index
+
+- Completed homeworks should delete themselves after a certain period of time...
 
 - Implement onclick for homework and subjects to redirect once subject and homework cards have been designed
 
 - Improve homework to be arranged by date, and include homework date.
 
 - Create calendar fragment, get calendar functionality working
-- Create index fragments, get index pages updating based on time of day (BY END OF WEEKEND)
+- Create index fragments, get index pages updating based on time of day
 - Implement try/catch statements for insert or abort statements
 
 - Create contact page (use subject contact form)

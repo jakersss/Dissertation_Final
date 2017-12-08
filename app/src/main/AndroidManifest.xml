@@ -37,5 +37,10 @@
         <activity
             android:name=".map"
             android:label="@string/map_title"/>
+        <activity
+            android:name=".homeworkEntry"
+            android:label="@string/Add_homework"/>
+        <activity
+            android:name=".homeworkViewIndividual"/>
     </application>
 </manifest>

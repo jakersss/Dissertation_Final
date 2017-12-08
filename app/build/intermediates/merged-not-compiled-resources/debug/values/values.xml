@@ -126,6 +126,7 @@
     <color name="colorTextHint">#51d8c7</color>
     <color name="colourText">#FFFFFF</color>
     <color name="colourTextHint">#518C7C</color>
+    <color name="colour_accept">#ffc100</color>
     <color name="default_colour_value">#000000</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
@@ -673,6 +674,7 @@
     <integer name="hide_password_duration">320</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Add_homework">Add homework</string>
     <string name="Go_To_Homework"><![CDATA[>]]></string>
     <string name="Go_To_Subject"><![CDATA[>]]></string>
     <string name="Name_And_Room">This is a test</string>
@@ -722,6 +724,8 @@
     <string name="hint_name">Username</string>
     <string name="hint_password">Password</string>
     <string name="hint_username">Username</string>
+    <string name="homework_name_entry">Homework Name Entry</string>
+    <string name="homework_name_title">Homework Name</string>
     <string name="homework_title">Homework</string>
     <string name="index_title">Index</string>
     <string name="login_failed">Login failed. Contact system administrator, or retype username and password</string>

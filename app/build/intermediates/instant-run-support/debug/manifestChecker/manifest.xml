@@ -45,6 +45,10 @@
         <activity
             android:name="com.example.jakers.dissertation_work.map"
             android:label="@string/map_title" />
+        <activity
+            android:name="com.example.jakers.dissertation_work.homeworkEntry"
+            android:label="@string/Add_homework" />
+        <activity android:name="com.example.jakers.dissertation_work.homeworkViewIndividual" />
 
         <meta-data
             android:name="android.support.VERSION"

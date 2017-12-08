@@ -20,6 +20,7 @@ import android.widget.Toast;
  *
  * Note: Test nav bar update after navigation to other pages occurs - i.e. data is saved persistently.
  *
+ * Delete homeworks that are due today and complete, else move to overdue.
  * For version 2: store images of users, update 'picture' value on create.
  */
 public class MainActivity extends AppCompatActivity
