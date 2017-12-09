@@ -31,7 +31,9 @@ public class homeworkAdapter extends RecyclerView.Adapter<homeworkAdapter.ViewHo
     // Gets global variables, to be referenced later on.
     private Context mContext;
     private ArrayList<homeworkObj> homeworkList;
+    private ArrayList<String> homeworkTaskList;
     private ArrayList<Double> progress;
+    private ArrayList<String> subjectList;
     private OnItemClicked onClick;
 
     public interface OnItemClicked{
@@ -59,16 +61,31 @@ public class homeworkAdapter extends RecyclerView.Adapter<homeworkAdapter.ViewHo
     public homeworkAdapter(Context mContext) {
         this.mContext = mContext;
         DatabaseHelper dbhelper = new DatabaseHelper(mContext);
-        SQLiteDatabase db = dbhelper.getReadableDatabase();
         homeworkList = dbhelper.getAllHomework();
     }
 
+    // Had trouble with this part - duplicate homeworks would update. Subject parameter added to
+    // data being obtained from the DB; now working fine.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.homework_card, parent, false);
-        return new ViewHolder(itemView);
-    }
+
+        // gets progress.
+        DatabaseHelper dbhelper = new DatabaseHelper(mContext);
+        progress = new ArrayList<Double>();
+        subjectList = new ArrayList<String>();
+        homeworkTaskList = new ArrayList<String>();
+        for(homeworkObj hwo : homeworkList){
+            homeworkTaskList.add(hwo.getHomework_desc());
+            subjectList.add(hwo.getHomework_subject());}
+            // subject list is determined, and progress is determined.
+            int x = 0;
+            for(String s : homeworkTaskList){
+                progress.add(dbhelper.determineProgressForIndividualTask(s, subjectList.get(x)));
+                x += 1;
+            }
+        return new ViewHolder(itemView);}
 
     // Working on getting a title from a click.
     @Override
@@ -77,14 +94,14 @@ public class homeworkAdapter extends RecyclerView.Adapter<homeworkAdapter.ViewHo
         final String homeworkTitle = homeworkobj.getHomework_desc();
         final String subjectTitle = homeworkobj.getHomework_subject();
         final String dueDate = homeworkobj.getHomework_duedate();
+        // Generate a list of homework progress, then get values.
         holder.homeworkName.setText(homeworkobj.getHomework_desc());
-        holder.subjectandprogress.setText(homeworkobj.getHomework_subject());
+        holder.subjectandprogress.setText(homeworkobj.getHomework_subject()
+                + " | Percentage complete: " + progress.get(position) + "%");
         holder.setOnClickListener(new homeworkListListener(mContext, dueDate,
-                homeworkTitle, subjectTitle));
-    }
+                homeworkTitle, subjectTitle));}
 
     @Override
     public int getItemCount() {
         return homeworkList.size();
-    }
-}
+    }}

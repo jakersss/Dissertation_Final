@@ -25,11 +25,8 @@ import java.util.List;
  * Created by Jakers on 07/12/2017.
  *
  * Things to add:
- * Populate the spinner with a list of subjects (DONE)
- * Get the information from added homeworks, display them dynamically (DONE)
- * add homework function, which formats the date picked. (DONE)
- * call update of homework list (DONE)
- * add validation to data entry. If already exists for subject, don't enter, else do.
+ * Editing of homework tasks, which creates a Toast.
+ *
  */
 
 public class homeworkEntry extends Activity {
@@ -56,7 +53,7 @@ public class homeworkEntry extends Activity {
         subjectSpinner = (Spinner) findViewById(R.id.homeworkSubjectEntry);
         homeworkDatePicker = (DatePicker) findViewById(R.id.dueDateEntry);
 
-        // Gets subjects, stores in an array list
+        // Gets subjects, stores in an array list - to be used by spinner.
         for(subjectObj so : subjectList){
             subjects.add(so.getDescription());}
 
@@ -66,13 +63,12 @@ public class homeworkEntry extends Activity {
         subjectForSpinnerAdapter.setDropDownViewResource
                 (android.R.layout.simple_spinner_dropdown_item);
         subjectSpinner.setAdapter(subjectForSpinnerAdapter);
-
-        FloatingActionButton addHomework = (FloatingActionButton) findViewById(R.id.addHomework);
+        // Sets homework entry floating action buttn
+        FloatingActionButton addHomework  = (FloatingActionButton) findViewById(R.id.addHomework);
         addHomework.setOnClickListener(new View.OnClickListener(){
             // Tested 07/12/2017: wasn't printing date off correctly, formatted and is now working perfectly.
             @Override
             public void onClick(View v) {
-                Boolean added = false;
                 String title = homeworkTitle.getText().toString();
                 String subject = subjectSpinner.getSelectedItem().toString();
 
@@ -104,24 +100,5 @@ public class homeworkEntry extends Activity {
                             Toast.LENGTH_LONG).show();
 
                 }
-
-/*                // Perform validation and enter the data if it doesn't exist.
-                // If it does (to lower) exist, display an error message.
-                try{
-                String titleTest = title.toLowerCase();
-                    if (title.toLowerCase() != null) {
-                        // If current list has a combination of homework task and subject, don't add.
-                        // Else do.
-                        added = true;
-                    }} catch (SQLiteException e) {
-                    Toast.makeText(getApplicationContext(), "That record already exists",
-                            Toast.LENGTH_LONG).show();}
-
-                if(added = true){
-                Intent goBack = new Intent(getApplicationContext(), homework.class);
-                goBack.putExtra("homeworkName", title);
-                goBack.putExtra("homeworkSubject", subject);
-                startActivity(goBack);*/
-/*        }}*/
     }});
 }}

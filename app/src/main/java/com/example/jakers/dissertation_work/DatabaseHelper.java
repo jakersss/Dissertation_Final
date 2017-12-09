@@ -14,6 +14,7 @@ import android.util.Log;
 import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.SimpleTimeZone;
@@ -830,23 +831,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         // Must first exist. No validation, doesn't need it as homework must first exist to be shown to the user.
-        public void setTaskStatus(String homeworkID, String homeworkTaskDesc, String flag){
+        public void setTaskStatus(String homeworkDesc, String homeworkTaskDesc, String homeworkSubject, String flag){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
-            values.put(COLUMN_HOMEWORK_TASK_DESC, homeworkID);
-            values.put(COLUMN_HOMEWORK_TASK_HOMEWORK_DESC, homeworkTaskDesc);
+            values.put(COLUMN_HOMEWORK_TASK_HOMEWORK_DESC, homeworkDesc);
+            values.put(COLUMN_HOMEWORK_TASK_DESC, homeworkTaskDesc);
+            values.put(COLUMN_HOMEWORK_TASK_SUBJECT, homeworkSubject);
             values.put(COLUMN_HOMEWORK_TASK_COMPLETED, flag);
 
-            switch(flag){
-                case "0":
-                    db.update(TABLE_HOMEWORK_TASK, values, COLUMN_HOMEWORK_TASK_DESC + " = ?",
-                            new String[]{String.valueOf(homeworkTaskDesc)});
-                case "1":
-                    db.update(TABLE_HOMEWORK_TASK, values, COLUMN_HOMEWORK_TASK_DESC + " = ?",
-                            new String[]{String.valueOf(homeworkTaskDesc)});
-            db.close();}}
+            db.update(TABLE_HOMEWORK_TASK, values, COLUMN_HOMEWORK_TASK_HOMEWORK_DESC
+                        + " = ? and " + COLUMN_HOMEWORK_TASK_DESC + " = ? and " +
+                        COLUMN_HOMEWORK_TASK_SUBJECT + " =? ",
+                        new String[]{homeworkDesc, homeworkTaskDesc, homeworkSubject});
+            db.close();}
 
-        public ArrayList<Double> determineProgressForAllHomeworks(){
+/*        public ArrayList<Double> determineProgressForAllHomeworks(){
 
             ArrayList<Double> progressList = new ArrayList<Double>();
 
@@ -871,39 +870,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     progressList.add(progress);
                 }
                 db.close();
-            }return progressList;}
+            }return progressList;}*/
 
-
-        public double determineProgressForIndividualTask(String homeworkDescription){
+        // Test 09/12/2017: not working
+        public double determineProgressForIndividualTask(String homeworkDescription, String subject){
             double sumTotal;
-            double complete = getAllTaskStatus(homeworkDescription, "1");
-            double incomplete = getAllTaskStatus(homeworkDescription, "0");
-            // Stops division by 0
-            if(complete == 0){
-                complete =+ 1;
-                sumTotal = complete + incomplete;
-                double sumPercentage = (double) ((complete/sumTotal) * 100);
-            } else if (incomplete == 0){
-                incomplete =+ 1;
-                sumTotal = complete + incomplete;
-                double sumPercentage = (double) ((complete/sumTotal) * 100);
-            }
-                sumTotal = complete + incomplete;
-            double sumPercentage = (double) ((complete/sumTotal) * 100);
-            return sumPercentage;
-        }
+            double sumPercentage;
+            double complete = getAllTaskStatus(homeworkDescription, subject, "1");
+            double incomplete = getAllTaskStatus(homeworkDescription, subject, "0");
+            // Creates sum total of both values
+            // If complete = 0, return 0%. Otherwise, do the sum.
+            sumTotal = complete + incomplete;
+            // Validation for division by 0
+            if(sumTotal == 0){
+                sumPercentage = 0.0;
+            } else if (complete == 0){
+                sumPercentage = 0.0;
+            } else {
+                sumPercentage = (double) ((complete/sumTotal) * 100);}
+            return sumPercentage;}
 
-        // Working on this.
-        public double getAllTaskStatus(String taskID, String flag) {
+        // Working on this. This currently isn't working.
+        public double getAllTaskStatus(String taskID, String subject, String flag) {
             String[] columns = {COLUMN_HOMEWORK_TASK_HOMEWORK_DESC,
                     COLUMN_HOMEWORK_TASK_DESC, COLUMN_HOMEWORK_TASK_COMPLETED};
 
             SQLiteDatabase db = this.getReadableDatabase();
 
-            String selection = COLUMN_HOMEWORK_TASK_DESC + " = ? " + " AND " +
-            COLUMN_HOMEWORK_TASK_COMPLETED + " = ?";
+            String selection = COLUMN_HOMEWORK_TASK_HOMEWORK_DESC + " = ? " + " AND " +
+            COLUMN_HOMEWORK_TASK_COMPLETED + " = ? AND " + COLUMN_HOMEWORK_TASK_SUBJECT + " =? ";
             // Might be not working because flag isn't given as a string...
-            String[] selectionArgs = {taskID, flag};
+            String[] selectionArgs = {taskID, flag, subject};
 
             Cursor cursor = db.query(TABLE_HOMEWORK_TASK,
                     columns,

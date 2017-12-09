@@ -31,6 +31,7 @@ public class homework extends AppCompatActivity {
     private homeworkAdapter adapter;
     DatabaseHelper dbhelper;
     SQLiteDatabase db;
+    boolean done = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,12 +56,12 @@ public class homework extends AppCompatActivity {
         dbhelper.addHomework("this isn't a test", "Science",
                 "16/04/2018");
         dbhelper.addHomeworkResource("this is a test", "Google Drive",
-                "maths", "http://www.google.com", null);
+                "Maths", "http://www.google.com", null);
         dbhelper.addHomeworkResource("this is a test", "MyMaths",
-                "maths", "http://www.mymaths.com", null);
-        dbhelper.addHomeworkTask("this is a test", "maths", "wow");
-        dbhelper.addHomeworkTask("this is a test", "maths", "great");
-        dbhelper.addHomeworkTask("this is a test", "maths", "fantastic");
+                "Maths", "http://www.mymaths.com", null);
+        dbhelper.addHomeworkTask("this is a test", "Maths", "wow");
+        dbhelper.addHomeworkTask("this is a test", "Maths", "great");
+        dbhelper.addHomeworkTask("this is a test", "Maths", "fantastic");
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_homework);
 
         // Processes the data obtained from the intent on callback
@@ -93,7 +94,7 @@ public class homework extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);}
 
-        // Adds decoration to the card view
+    // Adds decoration to the card view
         public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
         private int spanCount;
         private int spacing;
@@ -108,4 +109,17 @@ public class homework extends AppCompatActivity {
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }}
+    }
+
+    // On restart, change the screen to reflect the percentage complete.
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        adapter = new homeworkAdapter(this);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
+    }
